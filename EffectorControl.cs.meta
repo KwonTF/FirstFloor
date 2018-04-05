@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8a956c498a2f62a419cc9de8e90b3693
+timeCreated: 1514444977
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - nonActiveTexture: {fileID: 2800000, guid: 986a9f0b650e2da41b6ea5fbbc7efec9, type: 3}
+  - UPActiveTexture: {fileID: 2800000, guid: 36c0da254b6bee34d9c68785087854fd, type: 3}
+  - DownActiveTexture: {fileID: 2800000, guid: 36c0da254b6bee34d9c68785087854fd, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
