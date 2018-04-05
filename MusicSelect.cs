@@ -31,13 +31,16 @@ public class MusicSelect : MonoBehaviour {
     public Text level1;
     public Text level2;
     public AudioSource backBG;
-
+    
     int currentPoint = 0;
     int currentDifficulty = 0;
     public Data dataCenter;
+
+    public static bool devMode;
     //DB at Data.Musics 
     void Start()
     {
+        devMode = true;
     }
     void Update()
     {
