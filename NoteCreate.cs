@@ -46,7 +46,7 @@ public class NoteCreate : MonoBehaviour {
     public GameObject effector;
     private float temptime;
     string longHold = null;
-    public Queue<Data.NoteInfo> noteTime = new Queue<Data.NoteInfo>();
+    public List<Data.NoteInfo> noteTime = new List<Data.NoteInfo>();
     public Queue<GameObject> notes = new Queue<GameObject>();
 
     public GameObject Acc;
@@ -68,6 +68,7 @@ public class NoteCreate : MonoBehaviour {
         noteTime.Enqueue(tempnote);
         noteTime.Enqueue(tempnote2);
         noteTime.Enqueue(tempLong);*/
+        //noteTime.Sort()
         life = 100;
         score = 0;
         accStack = 0.0f;
@@ -84,14 +85,20 @@ public class NoteCreate : MonoBehaviour {
     }
 	public void init()
     {
+        noteTime.Sort(delegate (Data.NoteInfo a, Data.NoteInfo b) {
+            if (a.hitTime > b.hitTime) return 1;
+            else if (a.hitTime < b.hitTime) return -1;
+            else return 0;
+        });
         temptime = 0;
         while (!(noteTime.Count == 0))
         {
             GameObject obj;
             obj = Instantiate(Note, Parent.transform);
-            obj.GetComponent<NoteDrop>().hitTime = noteTime.Peek().hitTime +3+0.07f;//delay+sync;
-            obj.GetComponent<NoteDrop>().isLong = noteTime.Peek().isLong;
-            obj.GetComponent<NoteDrop>().endTime = noteTime.Dequeue().endTime + 3;
+            obj.GetComponent<NoteDrop>().hitTime = noteTime[0].hitTime +3+0.07f;//delay+sync;
+            obj.GetComponent<NoteDrop>().isLong = noteTime[0].isLong;
+            obj.GetComponent<NoteDrop>().endTime = noteTime[0].endTime + 3;
+            noteTime.RemoveAt(0);
             notes.Enqueue(obj);
         }
         lifeReducer = 100 / MusicPlayer.notesNum;
@@ -134,7 +141,7 @@ public class NoteCreate : MonoBehaviour {
                 Destroy(notes.Dequeue());
                 miss_num++;
                 combo = 0;
-                accCal(0);
+                accCal(0.0f);
                 life -= (lifeReducer+missStack);
                 missStack++;
                 AccEff(0);
@@ -146,7 +153,7 @@ public class NoteCreate : MonoBehaviour {
                 Destroy(notes.Dequeue());
                 perfect_num++;
                 comboUpdate();
-                accCal(100);
+                accCal(100.0f);
                 missStack = 0;
                 AccEff(4);
             }
@@ -159,7 +166,7 @@ public class NoteCreate : MonoBehaviour {
                     Destroy(notes.Dequeue());
                     bad_num++;
                     combo = 0;
-                    accCal(30);
+                    accCal(30.0f);
                     life -= (lifeReducer+missStack) * 0.7f;
                     AccEff(1);
                 }
@@ -169,7 +176,7 @@ public class NoteCreate : MonoBehaviour {
                     Destroy(notes.Dequeue());
                     nice_num++;
                     comboUpdate();
-                    accCal(50);
+                    accCal(50.0f);
                     life -= lifeReducer * 0.5f;
                     missStack = 0;
                     AccEff(2);
@@ -181,7 +188,7 @@ public class NoteCreate : MonoBehaviour {
                     Destroy(notes.Dequeue());
                     great_num++;
                     comboUpdate();
-                    accCal(70);
+                    accCal(70.0f);
                     life -= lifeReducer * 0.3f;
                     missStack = 0;
                     AccEff(3);
@@ -193,7 +200,7 @@ public class NoteCreate : MonoBehaviour {
                     Destroy(notes.Dequeue());
                     perfect_num++;
                     comboUpdate();
-                    accCal(100);
+                    accCal(100.0f);
                     missStack = 0;
                     AccEff(4);
                 }
@@ -208,7 +215,7 @@ public class NoteCreate : MonoBehaviour {
                 Destroy(notes.Dequeue());
                 combo = 0;
                 miss_num++;
-                accCal(0);
+                accCal(0.0f);
                 life -= (lifeReducer+missStack)*2;
                 missStack++;
                 AccEff(0);
@@ -220,7 +227,7 @@ public class NoteCreate : MonoBehaviour {
                 longHold = "Perfect";
                 comboUpdate();
                 perfect_num++;
-                accCal(100);
+                accCal(100.0f);
                 missStack = 0;
                 AccEff(4);
                 if (longHold != null)
@@ -237,7 +244,7 @@ public class NoteCreate : MonoBehaviour {
                     longHold = "Bad";
                     bad_num++;
                     combo = 0;
-                    accCal(30);
+                    accCal(30.0f);
                     life -= (lifeReducer+missStack) * 0.7f;
                     AccEff(1);
 
@@ -248,7 +255,7 @@ public class NoteCreate : MonoBehaviour {
                     longHold = "Good";
                     nice_num++;
                     comboUpdate();
-                    accCal(50);
+                    accCal(50.0f);
                     life -= lifeReducer * 0.5f;
                     missStack = 0;
                     AccEff(2);
@@ -259,7 +266,7 @@ public class NoteCreate : MonoBehaviour {
                     longHold = "Great";
                     great_num++;
                     comboUpdate();
-                    accCal(70);
+                    accCal(70.0f);
                     life -= lifeReducer * 0.3f;
                     missStack = 0;
                     AccEff(3);
@@ -270,7 +277,7 @@ public class NoteCreate : MonoBehaviour {
                     longHold = "Perfect";
                     comboUpdate();
                     perfect_num++;
-                    accCal(100);
+                    accCal(100.0f);
                     missStack = 0;
                     AccEff(4);
                 }
@@ -285,7 +292,7 @@ public class NoteCreate : MonoBehaviour {
                 Destroy(notes.Dequeue());
                 CancelInvoke("longHolding");
                 combo = 0;
-                accCal(0);
+                accCal(0.0f);
                 miss_num++;
                 life -= lifeReducer+missStack;
                 missStack++;
@@ -301,7 +308,7 @@ public class NoteCreate : MonoBehaviour {
                 perfect_num++;
                 comboUpdate();
                 missStack = 0;
-                accCal(100);
+                accCal(100.0f);
                 AccEff(4);
                 CancelInvoke("longHolding");
                 longHold = null;
@@ -315,7 +322,7 @@ public class NoteCreate : MonoBehaviour {
                     Destroy(notes.Dequeue());
                     combo = 0;
                     miss_num++;
-                    accCal(0);
+                    accCal(0.0f);
                     life -= lifeReducer+missStack;
                     missStack++;
                     AccEff(0);
@@ -327,7 +334,7 @@ public class NoteCreate : MonoBehaviour {
                     Destroy(notes.Dequeue());
                     bad_num++;
                     combo = 0;
-                    accCal(30);
+                    accCal(30.0f);
                     life -= (lifeReducer+missStack) * 0.7f;
                     AccEff(1);
                 }
@@ -337,7 +344,7 @@ public class NoteCreate : MonoBehaviour {
                     Destroy(notes.Dequeue());
                     nice_num++;
                     comboUpdate();
-                    accCal(50);
+                    accCal(50.0f);
                     life -= lifeReducer * 0.5f;
                     missStack = 0;
                     AccEff(2);
@@ -349,7 +356,7 @@ public class NoteCreate : MonoBehaviour {
                     Destroy(notes.Dequeue());
                     great_num++;
                     comboUpdate();
-                    accCal(70);
+                    accCal(70.0f);
                     life -= lifeReducer * 0.3f;
                     missStack = 0;
                     AccEff(3);
@@ -362,7 +369,7 @@ public class NoteCreate : MonoBehaviour {
                     perfect_num++;
                     comboUpdate();
                     missStack = 0;
-                    accCal(100);
+                    accCal(100.0f);
                     AccEff(4);
                 }
                 CancelInvoke("longHolding");
@@ -383,7 +390,7 @@ public class NoteCreate : MonoBehaviour {
     {
         accStack += percentage;
         accuracy = accStack / (float)MusicPlayer.notesNum;
-        score += (int)(200*(percentage / 100)*(1.0f+combo/100));
+        score += (int)(200.0f*(percentage / 100.0f)*(1.0f+combo/100.0f));
     }
     void comboUpdate()
     {

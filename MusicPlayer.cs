@@ -36,37 +36,40 @@ public class MusicPlayer : MonoBehaviour {
             switch (note.notePos)
             {
                 case "s":
-                    s.noteTime.Enqueue(note);
+                    s.noteTime.Add(note);
                     break;
                 case "d":
-                    d.noteTime.Enqueue(note);
+                    d.noteTime.Add(note);
                     break;
                 case "f":
-                    f.noteTime.Enqueue(note);
+                    f.noteTime.Add(note);
                     break;
                 case "j":
-                    j.noteTime.Enqueue(note);
+                    j.noteTime.Add(note);
                     break;
                 case "k":
-                    k.noteTime.Enqueue(note);
+                    k.noteTime.Add(note);
                     break;
                 case "l":
-                    l.noteTime.Enqueue(note);
+                    l.noteTime.Add(note);
                     break;
                 case "q":
-                    q.noteTime.Enqueue(note);
+                    q.noteTime.Add(note);
                     break;
                 case "a":
-                    a.noteTime.Enqueue(note);
+                    a.noteTime.Add(note);
                     break;
                 case "p":
-                    p.noteTime.Enqueue(note);
+                    p.noteTime.Add(note);
                     break;
                 case ";":
-                    semicolmn.noteTime.Enqueue(note);
+                    semicolmn.noteTime.Add(note);
                     break;
                 case "space":
-                    space.noteTime.Enqueue(note);
+                    space.noteTime.Add(note);
+                    break;
+                default:
+                    Debug.Log("Missing note Detected!");
                     break;
             }
         }
@@ -80,6 +83,7 @@ public class MusicPlayer : MonoBehaviour {
         q.init();
         a.init();
         p.init();
+        
         semicolmn.init();
         space.init();
         Invoke("start", 3.0f);
