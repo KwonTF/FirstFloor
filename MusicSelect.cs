@@ -158,6 +158,8 @@ public class MusicSelect : MonoBehaviour {
         MusicPlayer.pattern = dataCenter.Musics[currentPoint].list[currentDifficulty].Notes;
         MusicPlayer.videoClip = dataCenter.Musics[currentPoint].bga;
         MusicPlayer.notesNum = dataCenter.Musics[currentPoint].list[currentDifficulty].max_combo;
+        MusicPlayer.info = dataCenter.Musics[currentPoint];
+        MusicPlayer.diff = dataCenter.Musics[currentPoint].list[currentDifficulty].Difficulty;
         Result.music = dataCenter.Musics[currentPoint].name;
         Result.difficult = dataCenter.Musics[currentPoint].list[currentDifficulty].Difficulty;
         Result.texture = dataCenter.Musics[currentPoint].list[currentDifficulty].catchParase;

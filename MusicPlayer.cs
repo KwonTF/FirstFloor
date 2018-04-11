@@ -8,6 +8,10 @@ public class MusicPlayer : MonoBehaviour {
     public static AudioClip SelectedMusic;
     public static List<Data.NoteInfo> pattern;
     public static VideoClip videoClip;
+    public static Data.MusicInfo info;
+    public static string diff;
+    public HiddenControl hidfunc;
+
     public NoteCreate s;
     public NoteCreate l;
     //List<Data.NoteInfo> s;
@@ -90,6 +94,7 @@ public class MusicPlayer : MonoBehaviour {
         GetComponent<VideoPlayer>().clip = videoClip;
         lifeorigin = lifebar.GetComponent<RectTransform>().sizeDelta;
         s.dissolve();
+        hidfunc.init(info,diff);
     }
 	
 	// Update is called once per frame

@@ -95,7 +95,7 @@ public class NoteCreate : MonoBehaviour {
         {
             GameObject obj;
             obj = Instantiate(Note, Parent.transform);
-            obj.GetComponent<NoteDrop>().hitTime = noteTime[0].hitTime +3+0.07f;//delay+sync;
+            obj.GetComponent<NoteDrop>().hitTime = noteTime[0].hitTime +3;//delay+sync;
             obj.GetComponent<NoteDrop>().isLong = noteTime[0].isLong;
             obj.GetComponent<NoteDrop>().endTime = noteTime[0].endTime + 3;
             noteTime.RemoveAt(0);
@@ -146,7 +146,7 @@ public class NoteCreate : MonoBehaviour {
                 missStack++;
                 AccEff(0);
             }
-            else if (tempNote.hitTime - temptime < 0.06 && MusicSelect.devMode)
+            else if (tempNote.hitTime - temptime < 0.01 && MusicSelect.devMode)
             {
                 Debug.Log("Perfect Auto");
                 effector.GetComponent<ParticleSystem>().Play();
@@ -221,7 +221,7 @@ public class NoteCreate : MonoBehaviour {
                 AccEff(0);
 
             }
-            else if ((tempNote.hitTime - temptime < 0.06 && MusicSelect.devMode)&& longHold == null)
+            else if ((tempNote.hitTime - temptime < 0.01 && MusicSelect.devMode)&& longHold == null)
             {
                 Debug.Log("Perfect: auto");
                 longHold = "Perfect";
@@ -300,7 +300,7 @@ public class NoteCreate : MonoBehaviour {
                 longHold = null;
                 return;
             }
-            else if ((tempNote.endTime - temptime < 0.06 &&MusicSelect.devMode)&& longHold != null)
+            else if ((tempNote.endTime - temptime < 0.01 &&MusicSelect.devMode)&& longHold != null)
             {
                 Debug.Log("Perfect:auto" );
                 effector.GetComponent<ParticleSystem>().Play();

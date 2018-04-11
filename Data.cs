@@ -9,6 +9,7 @@ public class Data: MonoBehaviour{
     public Immortal immortal;
     public Kamui kamui;
     public Test test;
+    public Motivity motivity;
     public class NoteInfo
     {
         public bool isLong;
@@ -49,6 +50,7 @@ public class Data: MonoBehaviour{
         Musics.Add(immortal.GetInfo());
         Musics.Add(kamui.GetInfo());
         Musics.Add(test.GetInfo());
+        Musics.Add(motivity.GetInfo());
         console.init();
     }
 }
