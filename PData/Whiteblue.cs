@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class Test: MonoBehaviour{
-
+public class Whiteblue : MonoBehaviour {
     public AudioClip clip;
     public VideoClip bga;
     public VideoClip bga_blur;
     public Texture normal_img;
     public Texture hard_img;
     public Texture extreme_img;
-
-
     Data.MusicInfo MusicInfo = new Data.MusicInfo();
     void Start()
     {
@@ -22,25 +19,25 @@ public class Test: MonoBehaviour{
     }
     public Data.MusicInfo GetInfo()
     {
-        MusicInfo.key = 4;
-        MusicInfo.name = "Test";
-        MusicInfo.composer = "Kwontf";
-        MusicInfo.visualizer = "";
+        MusicInfo.key = 3;
+        MusicInfo.name = "WhiteBlue";
+        MusicInfo.composer = "zts";
+        MusicInfo.visualizer = "Moses";
         MusicInfo.music = clip;
         MusicInfo.bga_blur = bga_blur;
         MusicInfo.bga = bga;
         MusicInfo.list = new List<Data.Playdata>();
         ListInit();
-        
+
         return MusicInfo;
     }
-     void ListInit()
+    void ListInit()
     {
         int comboCalc = 0;
         Data.Playdata normal = new Data.Playdata();
         normal.Difficulty = "Normal";
         normal.catchParase = normal_img;
-        normal.level = 1;
+        normal.level = 2;
         CreateNote(normal);
         foreach (Data.NoteInfo notes in normal.Notes)
         {
@@ -59,7 +56,7 @@ public class Test: MonoBehaviour{
         comboCalc = 0;
         Data.Playdata hard = new Data.Playdata();
         hard.Difficulty = "Hard";
-        hard.level = 2;
+        hard.level = 8;
         hard.catchParase = hard_img;
         CreateNote(hard);
         foreach (Data.NoteInfo notes in hard.Notes)
@@ -79,7 +76,7 @@ public class Test: MonoBehaviour{
         comboCalc = 0;
         Data.Playdata extreme = new Data.Playdata();
         extreme.Difficulty = "Extreme";
-        extreme.level = 3;
+        extreme.level = 20;
         extreme.catchParase = extreme_img;
         CreateNote(extreme);
         foreach (Data.NoteInfo notes in extreme.Notes)
@@ -99,18 +96,14 @@ public class Test: MonoBehaviour{
     void CreateNote(Data.Playdata input)
     {
         input.Notes = new List<Data.NoteInfo>();
-        if (input.Difficulty.Equals("Normal"))
-        {
-            input.Notes.Add(new Data.NoteInfo(false, 2.0f, 2.0f, "s"));
+        if (input.Difficulty.Equals("Normal")) {
+            input.Notes.Add(new Data.NoteInfo(false, 2.14f + 0.0f, 0.0f, "l"));
         }
-        else if (input.Difficulty.Equals("Hard"))
-        {
-            input.Notes.Add(new Data.NoteInfo(false, 2.0f, 2.0f, "space"));
+        else if (input.Difficulty.Equals("Hard")){
+            input.Notes.Add(new Data.NoteInfo(false, 2.14f + 0.0f, 0.0f, "l"));
         }
-        else if (input.Difficulty.Equals("Extreme"))
-        {
-            input.Notes.Add(new Data.NoteInfo(true, 2.6f, 3.6f, "a"));
+        else if (input.Difficulty.Equals("Extreme")){
+            input.Notes.Add(new Data.NoteInfo(false, 2.14f + 0.0f, 0.0f, "l"));
         }
     }
-   
 }

@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Video;
 public class HiddenControl : MonoBehaviour {
 
     public AudioSource source;
+    public VideoPlayer player;
     public AudioClip mot_hid;
+    public VideoClip WB_hid;
 	// Use this for initialization
 	void Start () {
 		
@@ -21,6 +23,11 @@ public class HiddenControl : MonoBehaviour {
         {
             Debug.Log("hidden");
             source.clip = mot_hid;
+        }
+        if (music.name.Equals("WhiteBlue")&&Random.Range(0,3) == 0)
+        {
+            Debug.Log("hidden");
+            player.clip = WB_hid;
         }
     }
 }

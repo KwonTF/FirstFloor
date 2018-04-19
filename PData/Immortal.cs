@@ -59,7 +59,7 @@ public class Immortal: MonoBehaviour{
         comboCalc = 0;
         Data.Playdata hard = new Data.Playdata();
         hard.Difficulty = "Hard";
-        hard.level = 2;
+        hard.level = 12;
         hard.catchParase = hard_img;
         CreateNote(hard);
         foreach (Data.NoteInfo notes in hard.Notes)

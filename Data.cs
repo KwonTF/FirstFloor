@@ -10,6 +10,7 @@ public class Data: MonoBehaviour{
     public Kamui kamui;
     public Test test;
     public Motivity motivity;
+    public Whiteblue whiteblue;
     public class NoteInfo
     {
         public bool isLong;
@@ -51,6 +52,12 @@ public class Data: MonoBehaviour{
         Musics.Add(kamui.GetInfo());
         Musics.Add(test.GetInfo());
         Musics.Add(motivity.GetInfo());
+        Musics.Add(whiteblue.GetInfo());
+        Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
+            if (a.key > b.key) return 1;
+            else if (a.key < b.key) return -1;
+            else return 0;
+        });
         console.init();
     }
 }

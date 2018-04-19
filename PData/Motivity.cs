@@ -22,7 +22,7 @@ public class Motivity : MonoBehaviour {
     }
     public Data.MusicInfo GetInfo()
     {
-        MusicInfo.key = 1;
+        MusicInfo.key = 2;
         MusicInfo.name = "MOTIVITY";
         MusicInfo.composer = "ESTi";
         MusicInfo.visualizer = "";
