@@ -59,7 +59,7 @@ public class Motivity : MonoBehaviour {
         comboCalc = 0;
         Data.Playdata hard = new Data.Playdata();
         hard.Difficulty = "Hard";
-        hard.level = 8;
+        hard.level = 6;
         hard.catchParase = hard_img;
         CreateNote(hard);
         foreach (Data.NoteInfo notes in hard.Notes)
@@ -79,7 +79,7 @@ public class Motivity : MonoBehaviour {
         comboCalc = 0;
         Data.Playdata extreme = new Data.Playdata();
         extreme.Difficulty = "Extreme";
-        extreme.level = 20;
+        extreme.level = 15;
         extreme.catchParase = extreme_img;
         CreateNote(extreme);
         foreach (Data.NoteInfo notes in extreme.Notes)
