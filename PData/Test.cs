@@ -22,7 +22,7 @@ public class Test: MonoBehaviour{
     }
     public Data.MusicInfo GetInfo()
     {
-        MusicInfo.key = 4;
+        MusicInfo.key = 100;
         MusicInfo.name = "Test";
         MusicInfo.composer = "Kwontf";
         MusicInfo.visualizer = "";

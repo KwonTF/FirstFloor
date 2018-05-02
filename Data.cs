@@ -12,6 +12,7 @@ public class Data: MonoBehaviour{
     public Motivity motivity;
     public Whiteblue whiteblue;
     public Brandnew_Days brandnew_Days;
+    public Sapphire sapphire;
     public class NoteInfo
     {
         public bool isLong;
@@ -55,6 +56,7 @@ public class Data: MonoBehaviour{
         Musics.Add(motivity.GetInfo());
         Musics.Add(whiteblue.GetInfo());
         Musics.Add(brandnew_Days.GetInfo());
+        Musics.Add(sapphire.GetInfo());
         Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
             if (a.key > b.key) return 1;
             else if (a.key < b.key) return -1;
