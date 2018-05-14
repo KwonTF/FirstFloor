@@ -9,6 +9,7 @@ public class HiddenControl : MonoBehaviour {
     public AudioClip mot_hid;
     public VideoClip WB_hid;
     public VideoClip BND_hid;
+    public VideoClip LD_hid;
 	// Use this for initialization
 	void Start () {
 		
@@ -34,6 +35,11 @@ public class HiddenControl : MonoBehaviour {
         {
             Debug.Log("hidden");
             player.clip = BND_hid;
+        }
+        if(music.name.Equals("Lazy Days") && Random.Range(0, 3) == 0)
+        {
+            Debug.Log("hidden");
+            player.clip = LD_hid;
         }
     }
 }

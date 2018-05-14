@@ -15,6 +15,7 @@ public class Data: MonoBehaviour{
     public Sapphire sapphire;
     public TheTalesRemix talesRemix;
     public Entire entire;
+    public LazyDays lazyDays;
     public class NoteInfo
     {
         public bool isLong;
@@ -61,6 +62,7 @@ public class Data: MonoBehaviour{
         Musics.Add(sapphire.GetInfo());
         Musics.Add(talesRemix.GetInfo());
         Musics.Add(entire.GetInfo());
+        Musics.Add(lazyDays.GetInfo());
         Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
             if (a.key > b.key) return 1;
             else if (a.key < b.key) return -1;

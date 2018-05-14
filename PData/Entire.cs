@@ -39,7 +39,7 @@ public class Entire : MonoBehaviour
         Data.Playdata normal = new Data.Playdata();
         normal.Difficulty = "Normal";
         normal.catchParase = normal_img;
-        normal.level = 4;
+        normal.level = 9;
         CreateNote(normal);
         foreach (Data.NoteInfo notes in normal.Notes)
         {
@@ -58,7 +58,7 @@ public class Entire : MonoBehaviour
         comboCalc = 0;
         Data.Playdata hard = new Data.Playdata();
         hard.Difficulty = "Hard";
-        hard.level = 5;
+        hard.level = 16;
         hard.catchParase = hard_img;
         CreateNote(hard);
         foreach (Data.NoteInfo notes in hard.Notes)
