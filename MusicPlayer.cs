@@ -111,7 +111,9 @@ public class MusicPlayer : MonoBehaviour {
             Result.perfect = NoteCreate.perfect_num;
             Result.score = NoteCreate.score;
             Result.accuracy = NoteCreate.accuracy;
+            Result.life_getter = NoteCreate.life;
             SceneManager.LoadScene("Result");
+
         }
         lifebar.GetComponent<RectTransform>().sizeDelta = new Vector2(lifeorigin.x, lifeorigin.y * NoteCreate.life/100);
 	}

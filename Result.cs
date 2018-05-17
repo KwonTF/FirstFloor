@@ -16,11 +16,12 @@ public class Result : MonoBehaviour {
     public static int score;
     public static float accuracy;
 
+    public static float life_getter;
     public static string music;
     public static string difficult;
     public static Texture texture;
     public static VideoClip back;
-
+    public AudioSource audioSource;
     public static Data.Playdata toResult;
 
     public Text perfect_text;
@@ -82,16 +83,25 @@ public class Result : MonoBehaviour {
         else
         {
             rank.texture = F;
+            
         }
         TotalResult.TotalData totalData = new TotalResult.TotalData(toResult, music, score, accuracy, rank.texture);
         TotalResult.totalDatas.Add(totalData);
+        if(accuracy < 30.0f || life_getter <= 0)
+        {
+            audioSource.Stop();
+        }
+        else
+        {
+            audioSource.Play();
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.anyKeyDown)
         {
-            if (accuracy < 30.0f)
+            if (accuracy < 30.0f || life_getter <= 0.0f)
             {
                 SceneManager.LoadScene("GameOver");
             }
