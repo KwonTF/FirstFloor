@@ -59,7 +59,7 @@ public class LazyDays : MonoBehaviour
         comboCalc = 0;
         Data.Playdata hard = new Data.Playdata();
         hard.Difficulty = "Hard";
-        hard.level = 5;
+        hard.level = 9;
         hard.catchParase = hard_img;
         CreateNote(hard);
         foreach (Data.NoteInfo notes in hard.Notes)
