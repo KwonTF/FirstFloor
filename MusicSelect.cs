@@ -36,12 +36,25 @@ public class MusicSelect : MonoBehaviour {
     int currentPoint = 0;
     int currentDifficulty = 0;
     public Data dataCenter;
-
+    public Text stagenumtext;
     public static bool devMode;
     //DB at Data.Musics 
     void Start()
     {
         devMode = true;
+        switch(stagenum){
+            case 1:
+                stagenumtext.text = "1st Stage";
+                break;
+            case 2:
+                stagenumtext.text = "2nd Stage";
+                break;
+            case 3:
+                stagenumtext.text = "3rd Stage";
+                break;
+            default:
+                break;
+        }
     }
     void Update()
     {
