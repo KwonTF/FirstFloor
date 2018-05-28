@@ -38,6 +38,8 @@ public class MusicSelect : MonoBehaviour {
     public Data dataCenter;
     public Text stagenumtext;
     public static bool devMode;
+
+    public RawImage fader;
     //DB at Data.Musics 
     void Start()
     {
@@ -182,10 +184,27 @@ public class MusicSelect : MonoBehaviour {
         Result.texture = dataCenter.Musics[currentPoint].list[currentDifficulty].catchParase;
         Result.back = dataCenter.Musics[currentPoint].bga_blur;
         Result.toResult = dataCenter.Musics[currentPoint].list[currentDifficulty];
-        SceneManager.LoadScene("GameScene");
+        InvokeRepeating("dissolve", 0f, 0.05f);
     }
     public void musicRemotePlay()
     {
         backBG.Play();
+    }
+    void dissolve()
+    {
+        if (fader.color.a < 2.5f)
+        {
+            Color temp = fader.color;
+            temp.a += 0.1f;
+            fader.color = temp;
+        }
+        else
+        {
+            toSelect("GameScene");
+        }
+    }
+    public void toSelect(string name)
+    {
+        SceneManager.LoadScene(name);
     }
 }

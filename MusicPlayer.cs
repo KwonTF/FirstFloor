@@ -42,6 +42,7 @@ public class MusicPlayer : MonoBehaviour {
     Vector2 Accsize;
     Vector2 accstemp;
     Color acccoltemp;
+    public RawImage fader;
 
     // Use this for initialization
     void Start () {
@@ -127,7 +128,7 @@ public class MusicPlayer : MonoBehaviour {
             Result.score = NoteCreate.score;
             Result.accuracy = NoteCreate.accuracy;
             Result.life_getter = NoteCreate.life;
-            SceneManager.LoadScene("Result");
+            InvokeRepeating("endGame", 0f, 0.05f);
 
         }
         lifebar.GetComponent<RectTransform>().sizeDelta = new Vector2(lifeorigin.x, lifeorigin.y * NoteCreate.life/100);
@@ -192,5 +193,23 @@ public class MusicPlayer : MonoBehaviour {
         comboNum.GetComponent<Text>().color = temp;
         //base 255
         Acc.GetComponent<RawImage>().color = new Color(1f, 1f, 1f, 0f);
+    }
+
+    public void endGame()
+    {
+        if (fader.color.a < 2.5f)
+        {
+            Color temp = fader.color;
+            temp.a += 0.1f;
+            fader.color = temp;
+        }
+        else
+        {
+            toSelect("Result");
+        }
+    }
+    public void toSelect(string name)
+    {
+        SceneManager.LoadScene(name);
     }
 }

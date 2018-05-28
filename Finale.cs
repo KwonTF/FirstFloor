@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Finale : MonoBehaviour {
     public static bool hiddenVid;
@@ -10,17 +11,19 @@ public class Finale : MonoBehaviour {
     public VideoClip perfect;
 
     public VideoPlayer VideoPlayer;
-	// Use this for initialization
-	void Start () {
+
+    public RawImage fader;
+    // Use this for initialization
+    void Start () {
         if (hiddenVid)
         {
             VideoPlayer.clip = perfect;
-            Invoke("Scenechange", 6.0f);
+            InvokeRepeating("dissolve", 6.0f, 0.05f);
         }
         else
         {
             VideoPlayer.clip = normal;
-            Invoke("Scenechange", 65.0f);
+            InvokeRepeating("dissolve", 65.0f, 0.05f);
         }
 	}
 	
@@ -28,10 +31,22 @@ public class Finale : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Space))
         {
-            Scenechange();
+            InvokeRepeating("dissolve", 0f, 0.05f);
         }
 	}
-
+    public void dissolve()
+    {
+        if (fader.color.a < 2.5f)
+        {
+            Color temp = fader.color;
+            temp.a += 0.1f;
+            fader.color = temp;
+        }
+        else
+        {
+            Scenechange();
+        }
+    }
     void Scenechange()
     {
         SceneManager.LoadScene("ModeSelect");

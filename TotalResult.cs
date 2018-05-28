@@ -63,6 +63,8 @@ public class TotalResult : MonoBehaviour {
     public Texture C;
     public Texture D;
     public Texture F;
+
+    public RawImage fader;
     void Start () {
         texture1.texture = totalDatas[0].playdata.catchParase;
         score1.text = totalDatas[0].score.ToString();
@@ -130,7 +132,24 @@ public class TotalResult : MonoBehaviour {
             {
                 Finale.hiddenVid = false;
             }
-            SceneManager.LoadScene("Finale");
+            InvokeRepeating("dissolve", 0f, 0.05f);
         }
 	}
+    public void dissolve()
+    {
+        if (fader.color.a < 2.5f)
+        {
+            Color temp = fader.color;
+            temp.a += 0.1f;
+            fader.color = temp;
+        }
+        else
+        {
+            toSelect("Finale");
+        }
+    }
+    public void toSelect(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
 }

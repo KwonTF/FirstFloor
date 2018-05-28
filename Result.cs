@@ -46,6 +46,8 @@ public class Result : MonoBehaviour {
     public Texture D;
     public Texture F;
 
+    public RawImage fader;
+    string nextScene;
     // Use this for initialization
     void Start () {
         perfect_text.text = perfect.ToString();
@@ -103,17 +105,36 @@ public class Result : MonoBehaviour {
         {
             if (accuracy < 30.0f || life_getter <= 0.0f)
             {
-                SceneManager.LoadScene("GameOver");
+                nextScene = "GameOver";
             }
             else if (MusicSelect.stagenum >= 3)
             {
-                SceneManager.LoadScene("totalResult");
+                nextScene = "totalResult";
             }
             else
             {
-                SceneManager.LoadScene("MusicSelect");
+                nextScene = "MusicSelect";
                 MusicSelect.stagenum++;
             }
+            InvokeRepeating("dissolve", 0f, 0.05f);
         }
 	}
+
+    public void dissolve()
+    {
+        if (fader.color.a < 2.5f)
+        {
+            Color temp = fader.color;
+            temp.a += 0.1f;
+            fader.color = temp;
+        }
+        else
+        {
+            toSelect(nextScene);
+        }
+    }
+    public void toSelect(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
 }
