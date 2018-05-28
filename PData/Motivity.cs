@@ -25,7 +25,7 @@ public class Motivity : MonoBehaviour {
         MusicInfo.key = 2;
         MusicInfo.name = "MOTIVITY";
         MusicInfo.composer = "ESTi";
-        MusicInfo.visualizer = "";
+        MusicInfo.visualizer = "Default";
         MusicInfo.music = clip;
         MusicInfo.bga_blur = bga_blur;
         MusicInfo.bga = bga;

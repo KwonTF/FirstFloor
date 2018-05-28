@@ -31,7 +31,8 @@ public class MusicSelect : MonoBehaviour {
     public Text level1;
     public Text level2;
     public AudioSource backBG;
-    
+    public Text composer;
+    public Text visualizer;
     int currentPoint = 0;
     int currentDifficulty = 0;
     public Data dataCenter;
@@ -49,6 +50,7 @@ public class MusicSelect : MonoBehaviour {
             {
                 currentPoint++;
                 init();
+                backBG.Play();
             }
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -57,6 +59,7 @@ public class MusicSelect : MonoBehaviour {
             {
                 currentPoint--;
                 init();
+                backBG.Play();
             }
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -86,6 +89,8 @@ public class MusicSelect : MonoBehaviour {
         screen.texture = dataCenter.Musics[currentPoint].list[currentDifficulty].catchParase;
         point.text = dataCenter.Musics[currentPoint].name;
         level.text = dataCenter.Musics[currentPoint].list[currentDifficulty].level.ToString();
+        composer.text = dataCenter.Musics[currentPoint].composer;
+        visualizer.text = dataCenter.Musics[currentPoint].visualizer;
         if(currentPoint - 2 < 0)
         {
             point_2.text = "-----";
@@ -150,7 +155,6 @@ public class MusicSelect : MonoBehaviour {
                 extreme.texture = extreme_sel;
                 break;
         }
-        backBG.Play();
     }
     public void GameStart(AudioClip MusicSelected)
     {
@@ -166,5 +170,9 @@ public class MusicSelect : MonoBehaviour {
         Result.back = dataCenter.Musics[currentPoint].bga_blur;
         Result.toResult = dataCenter.Musics[currentPoint].list[currentDifficulty];
         SceneManager.LoadScene("GameScene");
+    }
+    public void musicRemotePlay()
+    {
+        backBG.Play();
     }
 }

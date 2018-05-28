@@ -25,7 +25,7 @@ public class Kamui: MonoBehaviour{
         MusicInfo.key = 1;
         MusicInfo.name = "Kamui";
         MusicInfo.composer = "TJ.Hangneil";
-        MusicInfo.visualizer = "";
+        MusicInfo.visualizer = "Crolul";
         MusicInfo.music = clip;
         MusicInfo.bga_blur = bga_blur;
         MusicInfo.bga = bga;

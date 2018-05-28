@@ -24,7 +24,7 @@ public class Entire : MonoBehaviour
         MusicInfo.key = 7;
         MusicInfo.name = "Entire";
         MusicInfo.composer = "KIEN";
-        MusicInfo.visualizer = "";
+        MusicInfo.visualizer = "Flow.D";
         MusicInfo.music = clip;
         MusicInfo.bga_blur = bga_blur;
         MusicInfo.bga = bga;

@@ -25,8 +25,8 @@ public class Brandnew_Days : MonoBehaviour
     {
         MusicInfo.key = 4;
         MusicInfo.name = "Brandnew Days";
-        MusicInfo.composer = "Planetboom";
-        MusicInfo.visualizer = "";
+        MusicInfo.composer = "Planetboom";//
+        MusicInfo.visualizer = "Lucy, Dumpling Life";
         MusicInfo.music = clip;
         MusicInfo.bga_blur = bga_blur;
         MusicInfo.bga = bga;

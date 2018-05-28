@@ -23,7 +23,7 @@ public class Sapphire : MonoBehaviour {
         MusicInfo.key = 5;
         MusicInfo.name = "Sapphire";
         MusicInfo.composer = "Kari";
-        MusicInfo.visualizer = "";
+        MusicInfo.visualizer = "NANACO★SYNDROME";
         MusicInfo.music = clip;
         MusicInfo.bga_blur = bga_blur;
         MusicInfo.bga = bga;

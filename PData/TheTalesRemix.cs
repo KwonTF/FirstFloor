@@ -24,7 +24,7 @@ public class TheTalesRemix : MonoBehaviour {
         MusicInfo.key = 6;
         MusicInfo.name = "The Tales Remix";
         MusicInfo.composer = "ESTi,Nam Goo Min";
-        MusicInfo.visualizer = "";
+        MusicInfo.visualizer = "Default";
         MusicInfo.music = clip;
         MusicInfo.bga_blur = bga_blur;
         MusicInfo.bga = bga;

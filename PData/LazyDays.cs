@@ -25,7 +25,7 @@ public class LazyDays : MonoBehaviour
         MusicInfo.key = 8;
         MusicInfo.name = "Lazy Days";
         MusicInfo.composer = "HousePlan";
-        MusicInfo.visualizer = "";
+        MusicInfo.visualizer = "BBBBB";
         MusicInfo.music = clip;
         MusicInfo.bga_blur = bga_blur;
         MusicInfo.bga = bga;

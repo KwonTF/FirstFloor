@@ -27,12 +27,22 @@ public class MusicPlayer : MonoBehaviour {
     public static int notesNum;
 
     public Text combo;
-    public Text comboNum;
+    public GameObject comboNum;
     public GameObject lifebar;
+    public GameObject Acc;
     Vector2 lifeorigin;
 
     public Text Score;
     public Text MaxCombo;
+    //tempdata
+    Vector3 opos;
+    Vector3 temppos;
+    Color ocol;
+    Color tempcol;
+    Vector2 Accsize;
+    Vector2 accstemp;
+    Color acccoltemp;
+
     // Use this for initialization
     void Start () {
        foreach(Data.NoteInfo note in pattern)
@@ -93,8 +103,13 @@ public class MusicPlayer : MonoBehaviour {
         Invoke("start", 3.0f);
         GetComponent<VideoPlayer>().clip = videoClip;
         lifeorigin = lifebar.GetComponent<RectTransform>().sizeDelta;
-        s.dissolve();
         hidfunc.init(info,diff);
+        //Effect Refactoring
+        opos = comboNum.GetComponent<RectTransform>().position;
+        opos.y = opos.y - 30;
+        ocol = new Color(1f, 1f, 1f, 0.4f);
+        Acc.GetComponent<RawImage>().color = new Color(1f, 1f, 1f, 0f);
+        Accsize = Acc.GetComponent<RectTransform>().sizeDelta;
     }
 	
 	// Update is called once per frame
@@ -122,5 +137,59 @@ public class MusicPlayer : MonoBehaviour {
     {
         GetComponent<AudioSource>().Play();
         GetComponent<VideoPlayer>().Play();
+    }
+    //effect
+    public void comboEff()
+    {
+        CancelInvoke("dissolve");
+        CancelInvoke("motionEff");
+        Color temp;
+        if (combo.color.a != 0.6f)
+        {
+            temp = combo.color;
+            temp.a = 0.6f;
+            combo.color = temp;
+        }
+        temppos = opos;
+        tempcol = ocol;
+        comboNum.GetComponent<RectTransform>().position = temppos;
+        comboNum.GetComponent<Text>().color = tempcol;
+
+        Acc.GetComponent<RawImage>().color = new Color(1f, 1f, 1f, 0.3f);
+        Acc.GetComponent<RectTransform>().sizeDelta = Accsize;
+        acccoltemp = Acc.GetComponent<RawImage>().color;
+        accstemp = Acc.GetComponent<RectTransform>().sizeDelta;
+
+        InvokeRepeating("motionEff", 0, 0.05f);
+        Invoke("dissolve",1.0f);
+    }
+    public void motionEff()
+    {
+        //comnum
+        temppos.y += 10;
+        comboNum.GetComponent<RectTransform>().position = temppos;
+        tempcol.a += 0.2f;
+        comboNum.GetComponent<Text>().color = tempcol;
+        //acc
+        acccoltemp.a += 0.1f;
+        accstemp.x += 10;
+        accstemp.y += 3;
+        Acc.GetComponent<RectTransform>().sizeDelta = accstemp;
+        Acc.GetComponent<RawImage>().color = acccoltemp;
+        if (temppos.y - opos.y >= 30)
+        {
+            CancelInvoke("motionEff");
+        }
+    }
+    public void dissolve()
+    {
+        Color temp = combo.color;
+        temp.a = 0.0f;
+        //base 150
+        combo.color = temp;
+        //base 200
+        comboNum.GetComponent<Text>().color = temp;
+        //base 255
+        Acc.GetComponent<RawImage>().color = new Color(1f, 1f, 1f, 0f);
     }
 }

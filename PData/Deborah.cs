@@ -25,7 +25,7 @@ public class Deborah : MonoBehaviour
         MusicInfo.key = 9;
         MusicInfo.name = "Deborah";
         MusicInfo.composer = "Paul Bazooka";
-        MusicInfo.visualizer = "";
+        MusicInfo.visualizer = "PUNEW, DANZI";
         MusicInfo.music = clip;
         MusicInfo.bga_blur = bga_blur;
         MusicInfo.bga = bga;

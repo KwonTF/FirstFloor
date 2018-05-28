@@ -71,5 +71,6 @@ public class Data: MonoBehaviour{
             else return 0;
         });
         console.init();
+        console.musicRemotePlay();
     }
 }

@@ -25,7 +25,7 @@ public class Immortal: MonoBehaviour{
         MusicInfo.key = 0;
         MusicInfo.name = "Immortal";
         MusicInfo.composer = "Envy";
-        MusicInfo.visualizer = "";
+        MusicInfo.visualizer = "Default";
         MusicInfo.music = clip;
         MusicInfo.bga_blur = bga_blur;
         MusicInfo.bga = bga;

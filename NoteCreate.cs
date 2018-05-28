@@ -26,7 +26,7 @@ public class NoteCreate : MonoBehaviour {
     public static float life;
 
     static int missStack;
-
+    public MusicPlayer musicPlayer;
     /*For alpha notes
      * struct NoteInfo
     {
@@ -68,7 +68,7 @@ public class NoteCreate : MonoBehaviour {
         noteTime.Enqueue(tempnote);
         noteTime.Enqueue(tempnote2);
         noteTime.Enqueue(tempLong);*/
-        //noteTime.Sort()
+        //noteTime.Sort() 
         life = 100;
         score = 0;
         accStack = 0.0f;
@@ -401,54 +401,10 @@ public class NoteCreate : MonoBehaviour {
         }
         combo_num_vis.GetComponent<Text>().text = combo.ToString();
 
-        CancelInvoke("comboeffect");
-        CancelInvoke("dissolve");
-        Color temp = combo_num_vis.GetComponent<Text>().color;
-        temp.a = 0.5f;
-        combo_num_vis.GetComponent<Text>().color = temp;
-
-        temp = combo_vis.GetComponent<Text>().color;
-        temp.a = 0.6f;
-        combo_vis.GetComponent<Text>().color = temp;
-
-
-        temppos = opos;
-        tempcol = ocol;
-        combo_num_vis.GetComponent<RectTransform>().position = temppos;
-        combo_num_vis.GetComponent<Text>().color = tempcol;
-        InvokeRepeating("comboeffect", 0, 0.05f);
+        musicPlayer.comboEff();
     }
-    void comboeffect()
-    {
-        temppos.y += 10;
-        combo_num_vis.GetComponent<RectTransform>().position = temppos;
-        tempcol.a += 0.2f;
-        combo_num_vis.GetComponent<Text>().color = tempcol;
-        if (temppos.y - opos.y >= 30)
-        {
-            CancelInvoke("comboeffect");
-            Invoke("dissolve", 2.0f);
-        }
-    }
-    public void dissolve()
-    {
-        Color temp = combo_num_vis.GetComponent<Text>().color;
-        temp.a = 0;
-        combo_num_vis.GetComponent<Text>().color = temp;
-        temp = combo_vis.GetComponent<Text>().color;
-        temp.a = 0;
-        combo_vis.GetComponent<Text>().color = temp;
-        Acc.GetComponent<RawImage>().color = new Color(1f, 1f, 1f, 0f);
-    }
-
     void AccEff(int acc)
     {
-        CancelInvoke("AccEffOn");
-        CancelInvoke("dissolve");
-        Acc.GetComponent<RawImage>().color = new Color(1f, 1f, 1f, 0.3f);
-        Acc.GetComponent<RectTransform>().sizeDelta = Accsize;
-        acccoltemp = Acc.GetComponent<RawImage>().color;
-        accstemp = Acc.GetComponent<RectTransform>().sizeDelta;
         switch (acc)
         {
             case 0:
@@ -468,20 +424,6 @@ public class NoteCreate : MonoBehaviour {
                 break;
             default:
                 break;
-        }
-        InvokeRepeating("AccEffOn", 0, 0.05f);
-    }
-    void AccEffOn()
-    {
-        acccoltemp.a += 0.1f;
-        accstemp.x += 10;
-        accstemp.y += 3;
-        Acc.GetComponent<RectTransform>().sizeDelta = accstemp;
-        Acc.GetComponent<RawImage>().color = acccoltemp;
-        if (acccoltemp.a >= 0.6f)
-        {
-            CancelInvoke("AccEffOn");
-            Invoke("dissolve", 2.0f);
         }
     }
 }
