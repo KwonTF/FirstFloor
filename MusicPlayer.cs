@@ -141,6 +141,7 @@ public class MusicPlayer : MonoBehaviour {
     //effect
     public void comboEff()
     {
+        comboNum.GetComponent<Text>().text = NoteCreate.combo.ToString();
         CancelInvoke("dissolve");
         CancelInvoke("motionEff");
         Color temp;

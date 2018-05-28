@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class NoteCreate : MonoBehaviour {
-    static int combo = 0;
+    public static int combo = 0;
     public static int max_combo = 0;
     public static int perfect_num = 0;
     public static int great_num = 0;
@@ -13,13 +13,6 @@ public class NoteCreate : MonoBehaviour {
     public static int miss_num = 0;
     public static int score = 0;
     public static float accuracy = 0.00f;
-    public GameObject combo_num_vis;
-    public GameObject combo_vis;
-
-    Vector3 opos;
-    Vector3 temppos;
-    Color ocol;
-    Color tempcol;
     static float accStack;
     
     static float lifeReducer;
@@ -50,9 +43,6 @@ public class NoteCreate : MonoBehaviour {
     public Queue<GameObject> notes = new Queue<GameObject>();
 
     public GameObject Acc;
-     Vector2 Accsize;
-     Vector2 accstemp;
-     Color acccoltemp;
     public Texture Best;
     public Texture Great;
     public Texture Good;
@@ -80,8 +70,6 @@ public class NoteCreate : MonoBehaviour {
         bad_num = 0;
         miss_num = 0;
         combo = 0;
-    opos = combo_num_vis.GetComponent<RectTransform>().position;
-        opos.y = opos.y - 30;
     }
 	public void init()
     {
@@ -102,11 +90,6 @@ public class NoteCreate : MonoBehaviour {
             notes.Enqueue(obj);
         }
         lifeReducer = 100 / MusicPlayer.notesNum;
-
-        ocol = combo_num_vis.GetComponent<Text>().color;
-        ocol.a = ocol.a - 0.6f;
-        Acc.GetComponent<RawImage>().color = new Color(1f, 1f, 1f, 0f);
-        Accsize = Acc.GetComponent<RectTransform>().sizeDelta;
     }
 	// Update is called once per frame
 	void Update () {
@@ -399,7 +382,6 @@ public class NoteCreate : MonoBehaviour {
         {
             max_combo = combo;
         }
-        combo_num_vis.GetComponent<Text>().text = combo.ToString();
 
         musicPlayer.comboEff();
     }

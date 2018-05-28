@@ -99,7 +99,7 @@ public class Result : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (accuracy < 30.0f || life_getter <= 0.0f)
             {
