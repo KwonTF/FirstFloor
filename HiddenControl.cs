@@ -10,6 +10,7 @@ public class HiddenControl : MonoBehaviour {
     public VideoClip WB_hid;
     public VideoClip BND_hid;
     public VideoClip LD_hid;
+    public VideoClip ALie_hid;
 	// Use this for initialization
 	void Start () {
 		
@@ -40,6 +41,11 @@ public class HiddenControl : MonoBehaviour {
         {
             Debug.Log("hidden");
             player.clip = LD_hid;
+        }
+        if(music.name.Equals("A Lie -Deep Inside Mix-") && Random.Range(0,2) == 0)
+        {
+            Debug.Log("hidden");
+            player.clip = ALie_hid;
         }
     }
 }
