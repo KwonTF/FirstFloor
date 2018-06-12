@@ -87,8 +87,11 @@ public class Result : MonoBehaviour {
             rank.texture = F;
             
         }
-        TotalResult.TotalData totalData = new TotalResult.TotalData(toResult, music, score, accuracy, rank.texture);
-        TotalResult.totalDatas.Add(totalData);
+        //if (!ModeSelector.Urban)
+        //{
+            TotalResult.TotalData totalData = new TotalResult.TotalData(toResult, music, score, accuracy, rank.texture);
+            TotalResult.totalDatas.Add(totalData);
+        //}
         if(accuracy < 30.0f || life_getter <= 0)
         {
             audioSource.Stop();
@@ -107,14 +110,41 @@ public class Result : MonoBehaviour {
             {
                 nextScene = "GameOver";
             }
-            else if (MusicSelect.stagenum >= 3)
-            {
-                nextScene = "totalResult";
+            else if (!ModeSelector.Urban) { 
+                if (MusicSelect.stagenum >= 3)
+                {
+                    nextScene = "totalResult";
+                }
+                else
+                {
+                    nextScene = "MusicSelect";
+                    MusicSelect.stagenum++;
+                }
             }
-            else
+            else if (ModeSelector.Urban)
             {
-                nextScene = "MusicSelect";
-                MusicSelect.stagenum++;
+                if (UrbanWait.stageNum >= 3)
+                {
+                    nextScene = "UrbanTotal";
+                }
+                else
+                {
+                    nextScene = "UrbanWating";
+                    UrbanWait.stageNum++;
+                    UrbanWait.life_getter = life_getter;
+                    UrbanWait.musicAcc.Add(accuracy);
+                    UrbanWait.max_combo = max_combo;
+                    UrbanWait.combo = NoteCreate.combo;
+                    UrbanWait.score += score;
+                    float temp = 0.00f;
+                    foreach (float index in UrbanWait.musicAcc)
+                    {
+                        temp += index;
+                    }
+                    Debug.Log(temp);
+                    UrbanWait.acc = temp / UrbanWait.musicAcc.Count;
+                    Debug.Log(UrbanWait.acc);
+                }
             }
             InvokeRepeating("dissolve", 0f, 0.05f);
         }

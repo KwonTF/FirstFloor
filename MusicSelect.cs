@@ -38,12 +38,18 @@ public class MusicSelect : MonoBehaviour {
     public Data dataCenter;
     public Text stagenumtext;
     public static bool devMode;
-
+    public Text speedText;
     public RawImage fader;
+
+    public RawImage devdev;
+    public Texture devon;
+    public Texture devoff;
+
+    private float speed;
     //DB at Data.Musics 
     void Start()
     {
-        devMode = true;
+        devMode = false;
         switch(stagenum){
             case 1:
                 stagenumtext.text = "1st Stage";
@@ -57,10 +63,12 @@ public class MusicSelect : MonoBehaviour {
             default:
                 break;
         }
+        speed = 5.0f;
+        speedText.text = speed.ToString("N1")+"x";
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.DownArrow)){
+        if (Input.GetKeyDown(KeyCode.DownArrow)) {
             if (dataCenter.Musics.Count > (currentPoint + 1))
             {
                 currentPoint++;
@@ -79,7 +87,7 @@ public class MusicSelect : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if(currentDifficulty > 0)
+            if (currentDifficulty > 0)
             {
                 currentDifficulty--;
                 init();
@@ -87,7 +95,7 @@ public class MusicSelect : MonoBehaviour {
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if(currentDifficulty < 2)
+            if (currentDifficulty < 2)
             {
                 currentDifficulty++;
                 init();
@@ -96,6 +104,35 @@ public class MusicSelect : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             GameStart(backBG.clip);
+        }
+        else if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.P))
+        {
+            if (speed >= 10.0f)
+            {
+                speed = 10.0f;
+            }
+            else
+            {
+                speed += 0.1f;
+            }
+            speedText.text = speed.ToString("N1") + "x";
+        }
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Semicolon))
+        {
+            if (speed <= 1.0f)
+            {
+                speed = 1.0f;
+            }
+            else
+            {
+                speed -= 0.1f;
+            }
+            speedText.text = speed.ToString("N1")+"x";
+        }
+        else if (Input.GetKeyDown(KeyCode.F2))
+        {
+            devMode = !devMode;
+            devDev(devMode);
         }
     }
     public void init()
@@ -184,6 +221,7 @@ public class MusicSelect : MonoBehaviour {
         Result.texture = dataCenter.Musics[currentPoint].list[currentDifficulty].catchParase;
         Result.back = dataCenter.Musics[currentPoint].bga_blur;
         Result.toResult = dataCenter.Musics[currentPoint].list[currentDifficulty];
+        NoteDrop.Speed = speed;
         InvokeRepeating("dissolve", 0f, 0.05f);
     }
     public void musicRemotePlay()
@@ -206,5 +244,30 @@ public class MusicSelect : MonoBehaviour {
     public void toSelect(string name)
     {
         SceneManager.LoadScene(name);
+    }
+
+    public void devDev(bool input)
+    {
+        CancelInvoke("devEff");
+        if (input)
+        {
+            devdev.texture = devon;
+        }
+        else
+        {
+            devdev.texture = devoff;
+        }
+        devdev.color = new Color(1.0f, 1.0f, 1.0f, 2.5f);
+        InvokeRepeating("devEff", 0.0f, 0.1f);
+    }
+    public void devEff()
+    {
+        Color temp = devdev.color;
+        temp = new Color(temp.r, temp.g, temp.b, temp.a - 0.5f);
+        devdev.color = temp;
+        if(temp.a <= 0.0f)
+        {
+            CancelInvoke("devEff");
+        }
     }
 }

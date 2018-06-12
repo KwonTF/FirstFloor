@@ -8,7 +8,7 @@ public class NoteDrop : MonoBehaviour {
     Vector3 constPos;
     public float hitTime;
     public float endTime;
-    public float Speed;
+    public static float Speed;
     public bool isLong;
     private const float BASETIME = 5;
     private float downperMilsec;
@@ -17,7 +17,7 @@ public class NoteDrop : MonoBehaviour {
     // Note Start 558/ Line-134 = 692height
 	void Start (){
         //Debug.Log(Screen.height);
-        Speed = 5;
+        //Speed = 5;
         float calculatedTime = BASETIME/Speed;
         constPos = GetComponent<RectTransform>().position;
         GameObject temp = GameObject.Find("TimeLine");

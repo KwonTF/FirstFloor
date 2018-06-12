@@ -19,7 +19,7 @@ public class ModeSelector : MonoBehaviour {
     public AudioClip AudioClip2;
     public VideoClip Clip3;
     public AudioClip AudioClip3;
-
+    public static bool Urban;
     public SpriteRenderer fader;
 	// Use this for initialization
 	void Start () {
@@ -63,10 +63,12 @@ public class ModeSelector : MonoBehaviour {
             switch (Mathf.Abs(currentMode) % 3)
             {
                 case 0:
-                    InvokeRepeating("dissolve", 0f, 0.05f);
+                    InvokeRepeating("dissolve1", 0f, 0.05f);
+                    Urban = false;
                     break;
                 case 1:
-                    Debug.Log("Access Denied");
+                    InvokeRepeating("dissolve2", 0f, 0.05f);
+                    Urban = true;
                     break;
                 case 2:
                     Application.Quit();
@@ -77,7 +79,7 @@ public class ModeSelector : MonoBehaviour {
         }
 
 	}
-    void dissolve()
+    void dissolve1()
     {
         if (fader.color.a < 2.5f)
         {
@@ -88,6 +90,19 @@ public class ModeSelector : MonoBehaviour {
         else
         {
             toSelect("MusicSelect");
+        }
+    }
+    void dissolve2()
+    {
+        if (fader.color.a < 2.5f)
+        {
+            Color temp = fader.color;
+            temp.a += 0.1f;
+            fader.color = temp;
+        }
+        else
+        {
+            toSelect("UrbanSelect");
         }
     }
     public void toSelect(string name)

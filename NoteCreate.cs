@@ -70,6 +70,14 @@ public class NoteCreate : MonoBehaviour {
         bad_num = 0;
         miss_num = 0;
         combo = 0;
+        if (ModeSelector.Urban)
+        {
+            score = UrbanWait.score;
+            combo = UrbanWait.combo;
+            max_combo = UrbanWait.max_combo;
+            life = UrbanWait.life_getter;
+
+        }
     }
 	public void init()
     {
