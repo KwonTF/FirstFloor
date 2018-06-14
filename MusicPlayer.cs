@@ -10,6 +10,8 @@ public class MusicPlayer : MonoBehaviour {
     public static VideoClip videoClip;
     public static Data.MusicInfo info;
     public static string diff;
+    bool bonusUsed;
+    public static bool bonusActivated;
     public HiddenControl hidfunc;
 
     public NoteCreate s;
@@ -43,9 +45,16 @@ public class MusicPlayer : MonoBehaviour {
     Vector2 accstemp;
     Color acccoltemp;
     public RawImage fader;
+    public RawImage bonusImage;
 
-    // Use this for initialization
+    int cType;
+    Color cTemp;
+    public Texture cAct;
+    public RawImage bon;
+    // Use this for initialization 6309
     void Start () {
+        bonusUsed = false;
+        bonusActivated = false;
        foreach(Data.NoteInfo note in pattern)
         {
             switch (note.notePos)
@@ -132,8 +141,88 @@ public class MusicPlayer : MonoBehaviour {
 
         }
         lifebar.GetComponent<RectTransform>().sizeDelta = new Vector2(lifeorigin.x, lifeorigin.y * NoteCreate.life/100);
-	}
 
+        if (!bonusUsed && NoteCreate.score >= 100000)
+        {
+            bon.color = new Color(2.5f, 2.5f, 2.5f, 2.3f);
+            if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.Y))
+            {
+                bonusUsed = true;
+                bonusActivated = true;
+                Invoke("bonusEnded", 10.0f);
+                bonusImage.color = new Color(2.5f, 0.0f, 0.0f, 2.3f);
+                cType = 0;
+                bon.texture = cAct;
+            }
+        }
+        if (bonusActivated)
+        {
+            switch (cType)
+            {
+                case 0:
+                    cTemp = bonusImage.color;
+                    cTemp.g+=0.1f;
+                    bonusImage.color = cTemp;
+                    if(cTemp.g >= 2.5f)
+                    {
+                        cType++;
+                    }
+                    break;
+                case 1:
+                    cTemp = bonusImage.color;
+                    cTemp.r -= 0.1f;
+                    bonusImage.color = cTemp;
+                    if (cTemp.r <= 0.0f)
+                    {
+                        cType++;
+                    }
+                    break;
+                case 2:
+                    cTemp = bonusImage.color;
+                    cTemp.b += 0.1f;
+                    bonusImage.color = cTemp;
+                    if (cTemp.b >= 2.5f)
+                    {
+                        cType++;
+                        Debug.Log("Cc");
+                    }
+                    break;
+                case 3:
+                    cTemp = bonusImage.color;
+                    cTemp.g -= 0.1f;
+                    bonusImage.color = cTemp;
+                    if (cTemp.g <= 0.0f)
+                    {
+                        cType++;
+                    }
+                    break;
+                case 4:
+                    cTemp = bonusImage.color;
+                    cTemp.r += 0.1f;
+                    bonusImage.color = cTemp;
+                    if (cTemp.r >= 2.5f)
+                    {
+                        cType++;
+                    }
+                    break;
+                case 5:
+                    cTemp = bonusImage.color;
+                    cTemp.b -= 0.1f;
+                    bonusImage.color = cTemp;
+                    if (cTemp.b <= 0.0f)
+                    {
+                        cType = 0;
+                    }
+                    break;
+            }
+        }
+	}
+    public void bonusEnded()
+    {
+        bonusActivated = false;
+        bonusImage.color = new Color(2.5f, 0.0f, 0.0f, 0.0f);
+        bon.color = new Color(2.5f, 2.5f, 2.5f, 0.0f);
+    }
     void start()
     {
         GetComponent<AudioSource>().Play();

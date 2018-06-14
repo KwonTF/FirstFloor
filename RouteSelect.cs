@@ -20,7 +20,6 @@ public class RouteSelect : MonoBehaviour {
     public Text level1;
     public Text level2;
     int currentPoint = 0;
-    int currentDifficulty = 0;
 
     public Text RInfo;
     private float speed;

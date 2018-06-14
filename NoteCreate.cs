@@ -386,6 +386,10 @@ public class NoteCreate : MonoBehaviour {
     void comboUpdate()
     {
         combo++;
+        if (MusicPlayer.bonusActivated)
+        {
+            combo++;
+        }
         if(combo > max_combo)
         {
             max_combo = combo;
