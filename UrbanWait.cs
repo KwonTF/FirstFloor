@@ -62,6 +62,47 @@ public class UrbanWait : MonoBehaviour {
 	}
     public void toGame()
     {
+        switch (courseData.musics[stageNum].key)
+        {
+            case 0:
+                new Immortal().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 1:
+                new Kamui().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 2:
+                new Motivity().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 3:
+                new Whiteblue().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 4:
+                new Brandnew_Days().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 5:
+                new Sapphire().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 6:
+                new TheTalesRemix().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 7:
+                new Entire().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 8:
+                new LazyDays().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 9:
+                new Deborah().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 10:
+                new ALie_Deep().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 100:
+                new Test().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            default:
+                break;
+        }
         MusicPlayer.SelectedMusic = courseData.musics[stageNum].music;
         MusicPlayer.pattern = courseData.musics[stageNum].list[courseData.musicLevels[stageNum]].Notes;
         MusicPlayer.videoClip = courseData.musics[stageNum].bga;

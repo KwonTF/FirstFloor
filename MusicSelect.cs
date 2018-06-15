@@ -210,6 +210,47 @@ public class MusicSelect : MonoBehaviour {
     }
     public void GameStart(AudioClip MusicSelected)
     {
+        switch(dataCenter.Musics[currentPoint].key)
+        {
+            case 0:
+                dataCenter.immortal.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
+            case 1:
+                dataCenter.kamui.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
+            case 2:
+                dataCenter.motivity.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
+            case 3:
+                dataCenter.whiteblue.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
+            case 4:
+                dataCenter.brandnew_Days.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
+            case 5:
+                dataCenter.sapphire.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
+            case 6:
+                dataCenter.talesRemix.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
+            case 7:
+                dataCenter.entire.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
+            case 8:
+                dataCenter.lazyDays.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
+            case 9:
+                dataCenter.deborah.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
+            case 10:
+                dataCenter.aLie_Deep.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
+            case 100:
+                dataCenter.test.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
+            default:
+                break;
+        }
         MusicPlayer.SelectedMusic = MusicSelected;
         MusicPlayer.pattern = dataCenter.Musics[currentPoint].list[currentDifficulty].Notes;
         MusicPlayer.videoClip = dataCenter.Musics[currentPoint].bga;

@@ -36,12 +36,12 @@ public class Motivity : MonoBehaviour {
     }
     void ListInit()
     {
-        int comboCalc = 0;
+        //int comboCalc = 0;
         Data.Playdata normal = new Data.Playdata();
         normal.Difficulty = "Normal";
         normal.catchParase = normal_img;
         normal.level = 2;
-        CreateNote(normal);
+        /*CreateNote(normal);
         foreach (Data.NoteInfo notes in normal.Notes)
         {
             if (notes.isLong)
@@ -53,15 +53,15 @@ public class Motivity : MonoBehaviour {
                 comboCalc++;
             }
         }
-        normal.max_combo = comboCalc;
+        normal.max_combo = comboCalc;*/
         MusicInfo.list.Add(normal);
 
-        comboCalc = 0;
+        //comboCalc = 0;
         Data.Playdata hard = new Data.Playdata();
         hard.Difficulty = "Hard";
         hard.level = 6;
         hard.catchParase = hard_img;
-        CreateNote(hard);
+        /*CreateNote(hard);
         foreach (Data.NoteInfo notes in hard.Notes)
         {
             if (notes.isLong)
@@ -73,15 +73,15 @@ public class Motivity : MonoBehaviour {
                 comboCalc++;
             }
         }
-        hard.max_combo = comboCalc;
+        hard.max_combo = comboCalc;*/
         MusicInfo.list.Add(hard);
 
-        comboCalc = 0;
+        //comboCalc = 0;
         Data.Playdata extreme = new Data.Playdata();
         extreme.Difficulty = "Extreme";
         extreme.level = 15;
         extreme.catchParase = extreme_img;
-        CreateNote(extreme);
+        /*CreateNote(extreme);
         foreach (Data.NoteInfo notes in extreme.Notes)
         {
             if (notes.isLong)
@@ -93,8 +93,25 @@ public class Motivity : MonoBehaviour {
                 comboCalc++;
             }
         }
-        extreme.max_combo = comboCalc;
+        extreme.max_combo = comboCalc;*/
         MusicInfo.list.Add(extreme);
+    }
+    public void getNote(Data.Playdata input)
+    {
+        int comboCalc = 0;
+        CreateNote(input);
+        foreach (Data.NoteInfo notes in input.Notes)
+        {
+            if (notes.isLong)
+            {
+                comboCalc += 2;
+            }
+            else
+            {
+                comboCalc++;
+            }
+        }
+        input.max_combo = comboCalc;
     }
     void CreateNote(Data.Playdata input)
     {
