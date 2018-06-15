@@ -200,7 +200,7 @@ public class NoteCreate : MonoBehaviour {
         //long note
         else if (tempNote.isLong)
         {
-            if (temptime - tempNote.hitTime > 0.13 && longHold == null)
+            if (temptime - tempNote.hitTime > 0.2 && longHold == null)
             {
                 Debug.Log("Miss (Time out)");
                 Destroy(notes.Dequeue());
@@ -229,7 +229,7 @@ public class NoteCreate : MonoBehaviour {
             if (Input.GetKeyDown(keyCode)&& longHold == null)
             {
                 float calcTime = Mathf.Abs(tempNote.hitTime - temptime);
-                if (0.13 < calcTime && calcTime <= 0.12)
+                if (0.19 < calcTime && calcTime <= 0.2)
                 {
                     Debug.Log("Bad:" + calcTime);
                     longHold = "Bad";
@@ -240,7 +240,7 @@ public class NoteCreate : MonoBehaviour {
                     AccEff(1);
 
                 }
-                else if (0.12 < calcTime && calcTime <= 0.11)
+                else if (0.18 < calcTime && calcTime <= 0.19)
                 {
                     Debug.Log("Good:" + calcTime);
                     longHold = "Good";
@@ -251,7 +251,7 @@ public class NoteCreate : MonoBehaviour {
                     missStack = 0;
                     AccEff(2);
                 }
-                else if (0.11 < calcTime && calcTime <= 0.09)
+                else if (0.17 < calcTime && calcTime <= 0.18)
                 {
                     Debug.Log("Great:" + calcTime);
                     longHold = "Great";
@@ -262,7 +262,7 @@ public class NoteCreate : MonoBehaviour {
                     missStack = 0;
                     AccEff(3);
                 }
-                else if (calcTime <= 0.09)
+                else if (calcTime <= 0.17)
                 {
                     Debug.Log("Perfect:" + calcTime);
                     longHold = "Perfect";
