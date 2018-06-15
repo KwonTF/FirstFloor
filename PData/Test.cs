@@ -102,14 +102,7 @@ public class Test: MonoBehaviour{
         CreateNote(input);
         foreach (Data.NoteInfo notes in input.Notes)
         {
-            if (notes.isLong)
-            {
-                comboCalc += 2;
-            }
-            else
-            {
                 comboCalc++;
-            }
         }
         input.max_combo = comboCalc;
     }
@@ -126,7 +119,17 @@ public class Test: MonoBehaviour{
         }
         else if (input.Difficulty.Equals("Extreme"))
         {
-            input.Notes.Add(new Data.NoteInfo(true, 2.6f, 3.6f, "a"));
+            //input.Notes.Add(new Data.NoteInfo(false, 1.0f, 2.0f, "s"));
+            input.Notes.Add(new Data.NoteInfo(true, 1.0f, 2.0f, "d"));
+            //input.Notes.Add(new Data.NoteInfo(false, 2.0f, 2.0f, "s"));
+
+            input.Notes.Add(new Data.NoteInfo(false, 3.0f, 2.0f, "s"));
+            input.Notes.Add(new Data.NoteInfo(true, 3.0f, 5.0f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 5.0f, 2.0f, "s"));
+
+            input.Notes.Add(new Data.NoteInfo(false, 6.0f, 2.0f, "s"));
+            input.Notes.Add(new Data.NoteInfo(true, 6.0f, 9.0f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 9.0f, 2.0f, "s"));
         }
     }
    

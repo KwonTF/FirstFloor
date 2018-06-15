@@ -200,7 +200,7 @@ public class NoteCreate : MonoBehaviour {
         //long note
         else if (tempNote.isLong)
         {
-            if (temptime - tempNote.hitTime > 0.07 && longHold == null)
+            if (temptime - tempNote.hitTime > 0.13 && longHold == null)
             {
                 Debug.Log("Miss (Time out)");
                 Destroy(notes.Dequeue());
@@ -212,7 +212,7 @@ public class NoteCreate : MonoBehaviour {
                 AccEff(0);
 
             }
-            else if ((tempNote.hitTime - temptime < 0.01 && MusicSelect.devMode)&& longHold == null)
+            else if ((tempNote.hitTime - temptime < 0.015 && MusicSelect.devMode)&& longHold == null)
             {
                 Debug.Log("Perfect: auto");
                 longHold = "Perfect";
@@ -229,7 +229,7 @@ public class NoteCreate : MonoBehaviour {
             if (Input.GetKeyDown(keyCode)&& longHold == null)
             {
                 float calcTime = Mathf.Abs(tempNote.hitTime - temptime);
-                if (0.06 < calcTime && calcTime <= 0.07)
+                if (0.13 < calcTime && calcTime <= 0.12)
                 {
                     Debug.Log("Bad:" + calcTime);
                     longHold = "Bad";
@@ -240,7 +240,7 @@ public class NoteCreate : MonoBehaviour {
                     AccEff(1);
 
                 }
-                else if (0.05 < calcTime && calcTime <= 0.06)
+                else if (0.12 < calcTime && calcTime <= 0.11)
                 {
                     Debug.Log("Good:" + calcTime);
                     longHold = "Good";
@@ -251,7 +251,7 @@ public class NoteCreate : MonoBehaviour {
                     missStack = 0;
                     AccEff(2);
                 }
-                else if (0.04 < calcTime && calcTime <= 0.05)
+                else if (0.11 < calcTime && calcTime <= 0.09)
                 {
                     Debug.Log("Great:" + calcTime);
                     longHold = "Great";
@@ -262,7 +262,7 @@ public class NoteCreate : MonoBehaviour {
                     missStack = 0;
                     AccEff(3);
                 }
-                else if (calcTime <= 0.04)
+                else if (calcTime <= 0.09)
                 {
                     Debug.Log("Perfect:" + calcTime);
                     longHold = "Perfect";
@@ -277,37 +277,25 @@ public class NoteCreate : MonoBehaviour {
                     InvokeRepeating("longHolding",0.1f,0.1f);
                 }
             }
-            if (temptime - tempNote.endTime > 0.1 && longHold!=null)
+            if (temptime - tempNote.endTime >=0 && longHold!=null)
             {
-                Debug.Log("Miss (Hold too Long)");
+                Debug.Log("Ended");
                 Destroy(notes.Dequeue());
                 CancelInvoke("longHolding");
-                combo = 0;
-                accCal(0.0f);
-                miss_num++;
-                life -= lifeReducer+missStack;
-                missStack++;
-                AccEff(0);
                 longHold = null;
                 return;
             }
-            else if ((tempNote.endTime - temptime < 0.01 &&MusicSelect.devMode)&& longHold != null)
+            else if ((tempNote.endTime - temptime < 0.015 &&MusicSelect.devMode)&& longHold != null)
             {
-                Debug.Log("Perfect:auto" );
-                effector.GetComponent<ParticleSystem>().Play();
+                Debug.Log("Ended" );
                 Destroy(notes.Dequeue());
-                perfect_num++;
-                comboUpdate();
-                missStack = 0;
-                accCal(100.0f);
-                AccEff(4);
                 CancelInvoke("longHolding");
                 longHold = null;
                 return;
             }
             else if (Input.GetKeyUp(keyCode) && longHold != null)
             {
-                if (tempNote.endTime - temptime > 0.09)
+                if (tempNote.endTime - temptime > 0.13)
                 {
                     Debug.Log("Miss (Early)");
                     Destroy(notes.Dequeue());
@@ -318,8 +306,8 @@ public class NoteCreate : MonoBehaviour {
                     missStack++;
                     AccEff(0);
                 }
-                float calcTime = Mathf.Abs(tempNote.endTime - temptime);
-                if (0.09 < calcTime && calcTime <= 0.08)
+                /*float calcTime = Mathf.Abs(tempNote.endTime - temptime);
+                if (0.13 < calcTime && calcTime <= 0.12)
                 {
                     Debug.Log("Bad:" + calcTime);
                     Destroy(notes.Dequeue());
@@ -329,7 +317,7 @@ public class NoteCreate : MonoBehaviour {
                     life -= (lifeReducer+missStack) * 0.7f;
                     AccEff(1);
                 }
-                else if (0.08 < calcTime && calcTime <= 0.07)
+                else if (0.12 < calcTime && calcTime <= 0.11)
                 {
                     Debug.Log("Good:" + calcTime);
                     Destroy(notes.Dequeue());
@@ -340,7 +328,7 @@ public class NoteCreate : MonoBehaviour {
                     missStack = 0;
                     AccEff(2);
                 }
-                else if (0.07 < calcTime && calcTime <= 0.06)
+                else if (0.11 < calcTime && calcTime <= 0.10)
                 {
                     Debug.Log("Great:" + calcTime);
                     effector.GetComponent<ParticleSystem>().Play();
@@ -352,7 +340,7 @@ public class NoteCreate : MonoBehaviour {
                     missStack = 0;
                     AccEff(3);
                 }
-                else if (calcTime <= 0.06 )
+                else if (calcTime <= 0.10 )
                 {
                     Debug.Log("Perfect:" + calcTime);
                     effector.GetComponent<ParticleSystem>().Play();
@@ -362,7 +350,7 @@ public class NoteCreate : MonoBehaviour {
                     missStack = 0;
                     accCal(100.0f);
                     AccEff(4);
-                }
+                }*/
                 CancelInvoke("longHolding");
                 longHold = null;
             }

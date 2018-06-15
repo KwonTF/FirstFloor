@@ -100,14 +100,7 @@ public class Sapphire : MonoBehaviour {
         CreateNote(input);
         foreach (Data.NoteInfo notes in input.Notes)
         {
-            if (notes.isLong)
-            {
-                comboCalc += 2;
-            }
-            else
-            {
                 comboCalc++;
-            }
         }
         input.max_combo = comboCalc;
     }
