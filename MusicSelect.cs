@@ -245,6 +245,9 @@ public class MusicSelect : MonoBehaviour {
             case 10:
                 dataCenter.aLie_Deep.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
+            case 11:
+                dataCenter.For_Seasons_AGM.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
             case 100:
                 dataCenter.test.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;

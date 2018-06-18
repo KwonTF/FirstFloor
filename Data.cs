@@ -18,6 +18,7 @@ public class Data: MonoBehaviour{
     public LazyDays lazyDays;
     public Deborah deborah;
     public ALie_Deep aLie_Deep;
+    public For_Seasons_AGM For_Seasons_AGM;
     public class NoteInfo
     {
         public bool isLong;
@@ -67,6 +68,7 @@ public class Data: MonoBehaviour{
         Musics.Add(lazyDays.GetInfo());
         Musics.Add(deborah.GetInfo());
         Musics.Add(aLie_Deep.GetInfo());
+        Musics.Add(For_Seasons_AGM.GetInfo());
         Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
             if (a.key > b.key) return 1;
             else if (a.key < b.key) return -1;
