@@ -126,7 +126,7 @@ public class NoteCreate : MonoBehaviour {
         //Short Note
         if (!(tempNote.isLong))
         {
-            if (temptime - tempNote.hitTime > 0.1)
+            if (temptime - tempNote.hitTime > 0.15)
             {
                 Debug.Log("Miss (Time out)");
                 Destroy(notes.Dequeue());
@@ -151,7 +151,7 @@ public class NoteCreate : MonoBehaviour {
             if (Input.GetKeyDown(keyCode))
             {
                 float calcTime = Mathf.Abs(tempNote.hitTime - temptime);
-                if (0.09<calcTime &&calcTime<=0.1)
+                if (0.14<calcTime &&calcTime<=0.15)
                 {
                     Debug.Log("Bad:" + calcTime);
                     Destroy(notes.Dequeue());
@@ -161,7 +161,7 @@ public class NoteCreate : MonoBehaviour {
                     life -= (lifeReducer+missStack) * 0.7f;
                     AccEff(1);
                 }
-                else if(0.08 <calcTime && calcTime <=0.09)
+                else if(0.12 <calcTime && calcTime <=0.14)
                 {
                     Debug.Log("Good:" + calcTime);
                     Destroy(notes.Dequeue());
@@ -172,7 +172,7 @@ public class NoteCreate : MonoBehaviour {
                     missStack = 0;
                     AccEff(2);
                 }
-                else if (0.06 < calcTime && calcTime <= 0.08)
+                else if (0.1 < calcTime && calcTime <= 0.12)
                 {
                     Debug.Log("Great:" + calcTime);
                     effector.GetComponent<ParticleSystem>().Play();
@@ -184,7 +184,7 @@ public class NoteCreate : MonoBehaviour {
                     missStack = 0;
                     AccEff(3);
                 }
-                else if (calcTime <= 0.06)
+                else if (calcTime <= 0.1)
                 {
                     Debug.Log("Perfect:" + calcTime);
                     effector.GetComponent<ParticleSystem>().Play();
