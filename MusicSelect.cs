@@ -248,6 +248,9 @@ public class MusicSelect : MonoBehaviour {
             case 11:
                 dataCenter.For_Seasons_AGM.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
+            case 12:
+                dataCenter.waiting_Sun.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
             case 100:
                 dataCenter.test.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;

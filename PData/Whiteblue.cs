@@ -95,13 +95,8 @@ public class Whiteblue : MonoBehaviour {
     }
     public void getNote(Data.Playdata input)
     {
-        int comboCalc = 0;
         CreateNote(input);
-        foreach (Data.NoteInfo notes in input.Notes)
-        {
-                comboCalc++;
-        }
-        input.max_combo = comboCalc;
+        input.max_combo = input.Notes.Count;
     }
     void CreateNote(Data.Playdata input)
     {
