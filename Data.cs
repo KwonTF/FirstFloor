@@ -20,6 +20,7 @@ public class Data: MonoBehaviour{
     public ALie_Deep aLie_Deep;
     public For_Seasons_AGM For_Seasons_AGM;
     public Waiting_Sun waiting_Sun;
+    public Houseplan houseplan;
     public class NoteInfo
     {
         public bool isLong;
@@ -71,6 +72,7 @@ public class Data: MonoBehaviour{
         Musics.Add(aLie_Deep.GetInfo());
         Musics.Add(For_Seasons_AGM.GetInfo());
         Musics.Add(waiting_Sun.GetInfo());
+        Musics.Add(houseplan.GetInfo());
         Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
             if (a.key > b.key) return 1;
             else if (a.key < b.key) return -1;
