@@ -11,6 +11,8 @@ public class HiddenControl : MonoBehaviour {
     public VideoClip BND_hid;
     public VideoClip LD_hid;
     public VideoClip ALie_hid;
+    public VideoClip NE_Vid_Hid;
+    public AudioClip NE_BG_Hid;
 	// Use this for initialization
 	void Start () {
 		
@@ -46,6 +48,19 @@ public class HiddenControl : MonoBehaviour {
         {
             Debug.Log("hidden");
             player.clip = ALie_hid;
+        }
+        if (music.name.Equals("Nothing Else"))
+        {
+            if(Random.Range(0, 2) == 0)
+            {
+                Debug.Log("hidden");
+                player.clip = NE_Vid_Hid;
+            }
+            if (Random.Range(0, 2) == 0)
+            {
+                Debug.Log("hidden");
+                source.clip = NE_BG_Hid;
+            }
         }
     }
 }
