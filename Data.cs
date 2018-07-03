@@ -22,6 +22,7 @@ public class Data: MonoBehaviour{
     public Waiting_Sun waiting_Sun;
     public Houseplan houseplan;
     public Nothing_Else nothing;
+    public Liquid_Cube liquid_Cube;
     public class NoteInfo
     {
         public bool isLong;
@@ -75,6 +76,7 @@ public class Data: MonoBehaviour{
         Musics.Add(waiting_Sun.GetInfo());
         Musics.Add(houseplan.GetInfo());
         Musics.Add(nothing.GetInfo());
+        Musics.Add(liquid_Cube.GetInfo());
         Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
             if (a.key > b.key) return 1;
             else if (a.key < b.key) return -1;

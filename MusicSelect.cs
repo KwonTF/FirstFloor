@@ -257,6 +257,9 @@ public class MusicSelect : MonoBehaviour {
             case 14:
                 dataCenter.nothing.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
+            case 15:
+                dataCenter.liquid_Cube.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
             case 100:
                 dataCenter.test.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
