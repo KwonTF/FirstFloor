@@ -266,6 +266,9 @@ public class MusicSelect : MonoBehaviour {
             case 17:
                 dataCenter.tracking_Down.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
+            case 18:
+                dataCenter.enjoy_.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
             case 100:
                 dataCenter.test.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
