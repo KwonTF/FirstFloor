@@ -28,6 +28,7 @@ public class Data: MonoBehaviour{
     public Enjoy_The_World enjoy_;
     public Heaven_Tonight heaven_Tonight;
     public Love_N_Hate love_;
+    public Push_It push_;
     public class NoteInfo
     {
         public bool isLong;
@@ -87,6 +88,7 @@ public class Data: MonoBehaviour{
         Musics.Add(enjoy_.GetInfo());
         Musics.Add(heaven_Tonight.GetInfo());
         Musics.Add(love_.GetInfo());
+        Musics.Add(push_.GetInfo());
         Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
             if (a.key > b.key) return 1;
             else if (a.key < b.key) return -1;
