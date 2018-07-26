@@ -40,7 +40,23 @@ public class RouteSelect : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-	    if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            if (Routedata.courses.Count > (currentPoint + 1))
+            {
+                currentPoint++;
+                init();
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if (currentPoint - 1 >= 0)
+            {
+                currentPoint--;
+                init();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.P))
         {
             if (speed >= 10.0f)
             {

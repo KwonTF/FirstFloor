@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class Data: MonoBehaviour{
+public class Data : MonoBehaviour {
     public MusicSelect console;
-
+    //
     public Immortal immortal;
     public Kamui kamui;
     public Test test;
@@ -30,6 +30,8 @@ public class Data: MonoBehaviour{
     public Love_N_Hate love_;
     public Push_It push_;
     public Raise_Me_Up raise;
+    public Lost_n_Found lost_N_Found;
+    //
     public class NoteInfo
     {
         public bool isLong;
@@ -91,6 +93,7 @@ public class Data: MonoBehaviour{
         Musics.Add(love_.GetInfo());
         Musics.Add(push_.GetInfo());
         Musics.Add(raise.GetInfo());
+        Musics.Add(lost_N_Found.GetInfo());
         Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
             if (a.key > b.key) return 1;
             else if (a.key < b.key) return -1;

@@ -97,6 +97,45 @@ public class UrbanWait : MonoBehaviour {
             case 10:
                 new ALie_Deep().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
                 break;
+            case 11:
+                new For_Seasons_AGM().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 12:
+                new Waiting_Sun().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 13:
+                new Houseplan().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 14:
+                new Nothing_Else().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 15:
+                new Liquid_Cube().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 16:
+                new How_To_Enjoy().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 17:
+                new Tracking_Down().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 18:
+                new Enjoy_The_World().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 19:
+                new Heaven_Tonight().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 20:
+                new Love_N_Hate().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 21:
+                new Push_It().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 22:
+                new Raise_Me_Up().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 23:
+                new Lost_n_Found().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
             case 100:
                 new Test().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
                 break;
