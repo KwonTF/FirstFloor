@@ -31,6 +31,7 @@ public class Data : MonoBehaviour {
     public Push_It push_;
     public Raise_Me_Up raise;
     public Lost_n_Found lost_N_Found;
+    public Fly_Away fly_Away;
     //
     public class NoteInfo
     {
@@ -94,6 +95,7 @@ public class Data : MonoBehaviour {
         Musics.Add(push_.GetInfo());
         Musics.Add(raise.GetInfo());
         Musics.Add(lost_N_Found.GetInfo());
+        Musics.Add(fly_Away.GetInfo());
         Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
             if (a.key > b.key) return 1;
             else if (a.key < b.key) return -1;

@@ -284,6 +284,9 @@ public class MusicSelect : MonoBehaviour {
             case 23:
                 dataCenter.lost_N_Found.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
+            case 24:
+                dataCenter.fly_Away.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
             case 100:
                 dataCenter.test.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
