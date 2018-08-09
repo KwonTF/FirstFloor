@@ -13,6 +13,7 @@ public class HiddenControl : MonoBehaviour {
     public VideoClip ALie_hid;
     public VideoClip NE_Vid_Hid;
     public AudioClip NE_BG_Hid;
+    public VideoClip KungHid;
 	// Use this for initialization
 	void Start () {
 		
@@ -61,6 +62,11 @@ public class HiddenControl : MonoBehaviour {
                 Debug.Log("hidden");
                 source.clip = NE_BG_Hid;
             }
+        }
+        if (music.name.Equals("Kung Fu Rider") && Random.Range(0, 4) == 0)
+        {
+            Debug.Log("hidden"); 
+            player.clip = KungHid;
         }
     }
 }
