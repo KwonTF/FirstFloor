@@ -293,6 +293,9 @@ public class MusicSelect : MonoBehaviour {
             case 26:
                 dataCenter.Kung_Fu.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
+            case 27:
+                dataCenter.supersonic.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
             case 100:
                 dataCenter.test.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
