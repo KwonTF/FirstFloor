@@ -136,6 +136,24 @@ public class UrbanWait : MonoBehaviour {
             case 23:
                 new Lost_n_Found().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
                 break;
+            case 24:
+                new Fly_Away().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 25:
+                new Take_On_Me().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 26:
+                new Kung_Fu_Rider().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 27:
+                new Supersonic2011().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 28:
+                new Flicker().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
+            case 29:
+                new MxMxM_Star().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                break;
             case 100:
                 new Test().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
                 break;

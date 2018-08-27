@@ -5,6 +5,7 @@ using UnityEngine;
 public class UrbanData : MonoBehaviour {
     public ToewrofTech toewrofTech;
     public Thrillus_Returns thrillus_;
+    public Penta_Karaoke penta_;
     public RouteSelect urbanConsole;
     public class courseData
     {
@@ -22,6 +23,7 @@ public class UrbanData : MonoBehaviour {
 	void Start () {
         courses.Add(toewrofTech.getCourse());
         courses.Add(thrillus_.getCourse());
+        courses.Add(penta_.getCourse());
         urbanConsole.init();
 	}
 }
