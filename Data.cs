@@ -37,6 +37,7 @@ public class Data : MonoBehaviour {
     public Supersonic2011 supersonic;
     public Flicker flicker;
     public MxMxM_Star star;
+    public Someday someday;
     //
     public class NoteInfo
     {
@@ -106,6 +107,7 @@ public class Data : MonoBehaviour {
         Musics.Add(supersonic.GetInfo());
         Musics.Add(flicker.GetInfo());
         Musics.Add(star.GetInfo());
+        Musics.Add(someday.GetInfo());
         Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
             if (a.key > b.key) return 1;
             else if (a.key < b.key) return -1;

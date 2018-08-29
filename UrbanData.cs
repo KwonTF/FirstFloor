@@ -7,6 +7,8 @@ public class UrbanData : MonoBehaviour {
     public Thrillus_Returns thrillus_;
     public Penta_Karaoke penta_;
     public RouteSelect urbanConsole;
+    public Traveler_2102 traveler_;
+    public Vast_Message vast_;
     public class courseData
     {
         public List<Data.MusicInfo> musics;
@@ -24,6 +26,8 @@ public class UrbanData : MonoBehaviour {
         courses.Add(toewrofTech.getCourse());
         courses.Add(thrillus_.getCourse());
         courses.Add(penta_.getCourse());
+        courses.Add(traveler_.getCourse());
+        courses.Add(vast_.getCourse());
         urbanConsole.init();
 	}
 }
