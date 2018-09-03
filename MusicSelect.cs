@@ -305,6 +305,9 @@ public class MusicSelect : MonoBehaviour {
             case 30:
                 dataCenter.someday.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
+            case 31:
+                dataCenter.remember.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
             case 100:
                 dataCenter.test.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;

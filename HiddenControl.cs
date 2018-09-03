@@ -15,6 +15,7 @@ public class HiddenControl : MonoBehaviour {
     public AudioClip NE_BG_Hid;
     public VideoClip KungHid;
     public AudioClip mx_hid;
+    public AudioClip remem_hid;
 	// Use this for initialization
 	void Start () {
 		
@@ -73,6 +74,11 @@ public class HiddenControl : MonoBehaviour {
         {
             Debug.Log("hidden");
             source.clip = mx_hid;
+        }
+        if (music.name.Equals("Remember") && difficult.Equals("Extreme"))
+        {
+            Debug.Log("hidden");
+            source.clip = remem_hid;
         }
     }
 }
