@@ -39,6 +39,7 @@ public class Data : MonoBehaviour {
     public MxMxM_Star star;
     public Someday someday;
     public Remember remember;
+    public Xeus xeus;
     //
     public class NoteInfo
     {
@@ -110,6 +111,7 @@ public class Data : MonoBehaviour {
         Musics.Add(star.GetInfo());
         Musics.Add(someday.GetInfo());
         Musics.Add(remember.GetInfo());
+        Musics.Add(xeus.GetInfo());
         Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
             if (a.key > b.key) return 1;
             else if (a.key < b.key) return -1;
