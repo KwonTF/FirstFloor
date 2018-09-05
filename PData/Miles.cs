@@ -1,0 +1,347 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Video;
+public class Miles : MonoBehaviour {
+
+    public AudioClip clip;
+    public VideoClip bga;
+    public VideoClip bga_blur;
+    public Texture normal_img;
+    public Texture hard_img;
+    public Texture extreme_img;
+
+
+    Data.MusicInfo MusicInfo = new Data.MusicInfo();
+    void Start()
+    {
+        MusicInfo.music = clip;
+        MusicInfo.bga_blur = bga_blur;
+        MusicInfo.bga = bga;
+    }
+    public Data.MusicInfo GetInfo()
+    {
+        MusicInfo.key = 33;
+        MusicInfo.name = "Miles";
+        MusicInfo.composer = "Electronic Boutique";
+        MusicInfo.visualizer = "BF";
+        MusicInfo.music = clip;
+        MusicInfo.bga_blur = bga_blur;
+        MusicInfo.bga = bga;
+        MusicInfo.list = new List<Data.Playdata>();
+        ListInit();
+
+        return MusicInfo;
+    }
+    void ListInit()
+    {
+        Data.Playdata normal = new Data.Playdata();
+        normal.Difficulty = "Normal";
+        normal.catchParase = normal_img;
+        normal.level = 6;
+        MusicInfo.list.Add(normal);
+
+        Data.Playdata hard = new Data.Playdata();
+        hard.Difficulty = "Hard";
+        hard.level = 12;
+        hard.catchParase = hard_img;
+        MusicInfo.list.Add(hard);
+
+        Data.Playdata extreme = new Data.Playdata();
+        extreme.Difficulty = "Extreme";
+        extreme.level = 3;
+        extreme.catchParase = extreme_img;
+        MusicInfo.list.Add(extreme);
+    }
+    public void getNote(Data.Playdata input)
+    {
+        CreateNote(input);
+        input.max_combo = input.Notes.Count;
+    }
+    void CreateNote(Data.Playdata input)
+    {
+        input.Notes = new List<Data.NoteInfo>();
+        if (input.Difficulty.Equals("Normal"))
+        {
+            input.Notes.Add(new Data.NoteInfo(false, 1.604f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 2.527f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 2.988f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 3.911f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 4.373f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 4.604f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 4.834f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 5.065f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 5.296f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 5.757f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 6.219f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 6.68f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 6.911f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 8.988f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 9.911f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 10.373f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 11.296f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 11.757f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 11.988f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 12.219f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 12.45f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 12.68f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 13.142f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 13.604f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 14.065f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 14.296f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 14.527f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 14.988f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 15.45f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 15.911f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 16.373f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 16.834f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 17.296f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 17.757f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 17.757f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 18.68f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 18.68f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 19.142f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 19.373f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 19.603f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 19.604f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 19.834f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 20.065f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 20.527f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 20.527f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 20.988f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 21.45f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 21.45f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 21.68f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 22.373f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 23.296f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 23.757f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 24.219f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 24.68f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 25.142f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 25.142f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 26.065f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 26.065f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 26.527f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 26.757f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 26.988f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 26.988f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 27.219f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 27.45f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 27.911f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 27.911f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 28.373f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 28.834f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 28.834f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 29.065f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(true, 30.68f, 31.027f, "f"));
+            input.Notes.Add(new Data.NoteInfo(true, 31.142f, 32.642f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 32.757f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(true, 32.988f, 33.796f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 33.911f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 34.142f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 34.373f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 34.604f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(true, 34.834f, 35.411f, "k"));
+            input.Notes.Add(new Data.NoteInfo(true, 35.527f, 36.104f, "d"));
+            input.Notes.Add(new Data.NoteInfo(true, 36.219f, 37.95f, "j"));
+            input.Notes.Add(new Data.NoteInfo(true, 38.065f, 38.411f, "d"));
+            input.Notes.Add(new Data.NoteInfo(true, 38.527f, 40.027f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 40.142f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(true, 40.373f, 41.18f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 41.296f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 41.527f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 41.757f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 41.988f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(true, 42.219f, 42.796f, "f"));
+            input.Notes.Add(new Data.NoteInfo(true, 42.911f, 43.488f, "l"));
+            input.Notes.Add(new Data.NoteInfo(true, 43.604f, 45.334f, "a"));
+            input.Notes.Add(new Data.NoteInfo(false, 45.911f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 46.142f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 46.604f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 47.065f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 47.757f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 47.988f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 48.45f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 48.911f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(true, 49.604f, 49.95f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 50.065f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(true, 50.296f, 50.873f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 50.988f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 51.45f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 51.68f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 51.911f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 52.142f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(true, 52.604f, 52.95f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 52.834f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 53.296f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 53.527f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 53.757f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 53.988f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 54.45f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 54.68f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 55.142f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 55.373f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 55.604f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 55.834f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 56.296f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 56.527f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(true, 56.988f, 57.334f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 57.45f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(true, 57.68f, 58.257f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 58.373f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 58.834f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 59.065f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 59.296f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 59.527f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(true, 59.988f, 60.334f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 60.219f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(true, 60.68f, 61.027f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 61.142f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 61.373f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 61.488f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(true, 62.065f, 62.411f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 62.527f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 62.757f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 62.988f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 63.104f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(true, 63.334f, 63.565f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 63.68f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 63.796f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 63.911f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 64.373f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 64.604f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 64.834f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 64.95f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(true, 65.18f, 65.988f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 66.219f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 66.219f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 66.45f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 66.45f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 66.911f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 66.911f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 67.373f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 67.373f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(true, 67.604f, 67.95f, "l"));
+            input.Notes.Add(new Data.NoteInfo(true, 68.065f, 68.411f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 68.527f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 68.757f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 68.873f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(true, 69.45f, 69.796f, "k"));
+            input.Notes.Add(new Data.NoteInfo(true, 69.911f, 70.257f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 70.373f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 70.604f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(true, 70.719f, 70.95f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 71.065f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 71.296f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 71.527f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(true, 71.757f, 72.104f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 72.219f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 72.45f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 72.565f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 73.257f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 73.373f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 73.488f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(true, 73.604f, 73.95f, "l"));
+            input.Notes.Add(new Data.NoteInfo(true, 74.065f, 74.411f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 74.527f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 74.642f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 74.873f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(true, 75.104f, 75.334f, "k"));
+            input.Notes.Add(new Data.NoteInfo(true, 75.45f, 78.68f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 78.911f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 79.027f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 79.142f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 79.373f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 79.488f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 79.604f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 79.834f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 79.95f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(true, 80.411f, 80.757f, "j"));
+            input.Notes.Add(new Data.NoteInfo(true, 80.988f, 81.334f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 81.68f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 81.911f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 82.142f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 82.373f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(true, 82.834f, 83.642f, ";"));
+            input.Notes.Add(new Data.NoteInfo(true, 83.757f, 84.565f, "a"));
+            input.Notes.Add(new Data.NoteInfo(false, 84.911f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 84.911f, 0.2f,";"));
+            input.Notes.Add(new Data.NoteInfo(false, 85.257f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 85.257f, 0.2f, "a"));
+            input.Notes.Add(new Data.NoteInfo(false, 85.604f, 0.2f,";"));
+            input.Notes.Add(new Data.NoteInfo(true, 85.604f, 86.411f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 86.527f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 86.873f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 87.219f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 87.565f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 87.911f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 88.257f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 88.719f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 89.065f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 89.296f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(true, 89.757f, 90.104f, "j"));
+            input.Notes.Add(new Data.NoteInfo(true, 91.604f, 91.95f, "f"));
+            input.Notes.Add(new Data.NoteInfo(true, 92.065f, 93.565f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 93.68f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(true, 93.911f, 94.719f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 94.834f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 95.065f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 95.296f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 95.527f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(true, 95.757f, 96.334f, "k"));
+            input.Notes.Add(new Data.NoteInfo(true, 96.45f, 97.027f, "d"));
+            input.Notes.Add(new Data.NoteInfo(true, 97.142f, 98.873f, "j"));
+            input.Notes.Add(new Data.NoteInfo(true, 98.988f, 99.334f, "l"));
+            input.Notes.Add(new Data.NoteInfo(true, 99.45f, 100.95f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 101.065f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(true, 101.296f, 102.104f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 102.219f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(false, 102.45f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 102.68f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 102.911f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(true, 103.142f, 103.719f, "l"));
+            input.Notes.Add(new Data.NoteInfo(true, 103.834f, 104.411f, "s"));
+            input.Notes.Add(new Data.NoteInfo(true, 104.527f, 105.334f, "j"));
+            input.Notes.Add(new Data.NoteInfo(true, 105.45f, 105.796f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 105.911f, 0.2f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 106.142f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(true, 106.373f, 106.719f, "f"));
+            input.Notes.Add(new Data.NoteInfo(true, 106.834f, 108.334f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 108.45f, 0.2f, "s"));
+            input.Notes.Add(new Data.NoteInfo(true, 108.68f, 109.488f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 109.604f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 109.834f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 110.065f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 110.296f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(true, 110.527f, 111.104f, "k"));
+            input.Notes.Add(new Data.NoteInfo(true, 111.219f, 111.796f, "d"));
+            input.Notes.Add(new Data.NoteInfo(true, 111.911f, 113.642f, "j"));
+            input.Notes.Add(new Data.NoteInfo(true, 113.757f, 114.104f, "l"));
+            input.Notes.Add(new Data.NoteInfo(true, 114.219f, 115.719f, "f"));
+            input.Notes.Add(new Data.NoteInfo(false, 115.834f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(true, 116.065f, 116.873f, "d"));
+            input.Notes.Add(new Data.NoteInfo(false, 116.988f, 0.2f, "l"));
+            input.Notes.Add(new Data.NoteInfo(false, 117.219f, 0.2f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 117.45f, 0.2f, "j"));
+            input.Notes.Add(new Data.NoteInfo(false, 117.68f, 0.2f, "f"));
+            input.Notes.Add(new Data.NoteInfo(true, 117.911f, 118.488f, "k"));
+            input.Notes.Add(new Data.NoteInfo(true, 118.604f, 119.18f, "s"));
+            input.Notes.Add(new Data.NoteInfo(true, 119.296f, 121.027f, "k"));
+            input.Notes.Add(new Data.NoteInfo(false, 121.604f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 121.95f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 122.296f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 122.757f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 123.911f, 0.2f, "space"));
+            input.Notes.Add(new Data.NoteInfo(false, 123.911f, 0.2f, "a"));
+
+        }
+        else if (input.Difficulty.Equals("Hard"))
+        {
+            input.Notes.Add(new Data.NoteInfo(false, 0.0f, 2.0f, "s"));
+        }
+        else if (input.Difficulty.Equals("Extreme"))
+        {
+            input.Notes.Add(new Data.NoteInfo(false, 0.0f, 2.0f, "s"));
+        }
+    }
+}

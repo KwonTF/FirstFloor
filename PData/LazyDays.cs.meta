@@ -1,11 +1,17 @@
 fileFormatVersion: 2
 guid: acedfa0c343b5004a9900bd41ad3d832
-timeCreated: 1526001948
+timeCreated: 1536108314
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - clip: {instanceID: 0}
+  - bga: {instanceID: 0}
+  - bga_blur: {instanceID: 0}
+  - normal_img: {instanceID: 0}
+  - hard_img: {instanceID: 0}
+  - extreme_img: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
