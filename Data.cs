@@ -41,6 +41,8 @@ public class Data : MonoBehaviour {
     public Remember remember;
     public Xeus xeus;
     public Miles miles;
+    public OrBiTaL orbital;
+    public Northpole northpole;
     //
     public class NoteInfo
     {
@@ -114,6 +116,8 @@ public class Data : MonoBehaviour {
         Musics.Add(remember.GetInfo());
         Musics.Add(xeus.GetInfo());
         Musics.Add(miles.GetInfo());
+        Musics.Add(orbital.GetInfo());
+        Musics.Add(northpole.GetInfo());
         Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
             if (a.key > b.key) return 1;
             else if (a.key < b.key) return -1;

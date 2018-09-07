@@ -55,6 +55,7 @@ public class MusicPlayer : MonoBehaviour {
     void Start () {
         bonusUsed = false;
         bonusActivated = false;
+        int missing = 0;
        foreach(Data.NoteInfo note in pattern)
         {
             switch (note.notePos)
@@ -93,9 +94,10 @@ public class MusicPlayer : MonoBehaviour {
                     space.noteTime.Add(note);
                     break;
                 default:
-                    Debug.Log("Missing note Detected!");
+                    Debug.Log("Missing note Detected!: Around "+missing.ToString());
                     break;
             }
+            missing++;
         }
         GetComponent<AudioSource>().clip = SelectedMusic;
         s.init();

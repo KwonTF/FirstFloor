@@ -314,6 +314,12 @@ public class MusicSelect : MonoBehaviour {
             case 33:
                 dataCenter.miles.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
+            case 34:
+                dataCenter.orbital.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
+            case 35:
+                dataCenter.northpole.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
             case 100:
                 dataCenter.test.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;

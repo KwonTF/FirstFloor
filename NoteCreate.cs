@@ -369,7 +369,7 @@ public class NoteCreate : MonoBehaviour {
     {
         accStack += percentage;
         accuracy = accStack / (float)MusicPlayer.notesNum;
-        score += (int)(200.0f*(percentage / 100.0f)*(1.0f+combo/100.0f));
+        score += (int)(200.0f*(percentage / 100.0f)*(1.0f+combo/346.0f));
     }
     void comboUpdate()
     {
