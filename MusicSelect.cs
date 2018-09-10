@@ -320,6 +320,9 @@ public class MusicSelect : MonoBehaviour {
             case 35:
                 dataCenter.northpole.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
+            case 36:
+                dataCenter.miracle.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                break;
             case 100:
                 dataCenter.test.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;

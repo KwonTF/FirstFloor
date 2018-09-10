@@ -43,6 +43,7 @@ public class Data : MonoBehaviour {
     public Miles miles;
     public OrBiTaL orbital;
     public Northpole northpole;
+    public Your_Own_Miracle miracle;
     //
     public class NoteInfo
     {
@@ -118,6 +119,7 @@ public class Data : MonoBehaviour {
         Musics.Add(miles.GetInfo());
         Musics.Add(orbital.GetInfo());
         Musics.Add(northpole.GetInfo());
+        Musics.Add(miracle.GetInfo());
         Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
             if (a.key > b.key) return 1;
             else if (a.key < b.key) return -1;

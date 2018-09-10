@@ -16,6 +16,7 @@ public class HiddenControl : MonoBehaviour {
     public VideoClip KungHid;
     public AudioClip mx_hid;
     public AudioClip remem_hid;
+    public VideoClip miracle_hid;
 	// Use this for initialization
 	void Start () {
 		
@@ -79,6 +80,11 @@ public class HiddenControl : MonoBehaviour {
         {
             Debug.Log("hidden");
             source.clip = remem_hid;
+        }
+        if(music.name.Equals("Your Own Miracle") && Random.Range(0,1) == 0)
+        {
+            Debug.Log("hidden");
+            player.clip = miracle_hid;
         }
     }
 }

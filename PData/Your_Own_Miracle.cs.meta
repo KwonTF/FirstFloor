@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: b33cc94640a83094fa15f5e6c2049aab
+timeCreated: 1536547034
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - clip: {fileID: 8300000, guid: cc39e7cf16d52cc488e4642ffefe1788, type: 3}
+  - bga: {fileID: 32900000, guid: 518715b66f031a948a0065a7ccc9f64d, type: 3}
+  - bga_blur: {fileID: 32900000, guid: d4d591a770ef0414ba55cdab734cf84e, type: 3}
+  - normal_img: {fileID: 2800000, guid: 9991aa8144a81b440849ee35610d078e, type: 3}
+  - hard_img: {fileID: 2800000, guid: 9991aa8144a81b440849ee35610d078e, type: 3}
+  - extreme_img: {fileID: 2800000, guid: 9991aa8144a81b440849ee35610d078e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -144,7 +144,7 @@ public class MusicPlayer : MonoBehaviour {
         }
         lifebar.GetComponent<RectTransform>().sizeDelta = new Vector2(lifeorigin.x, lifeorigin.y * NoteCreate.life/100);
 
-        if (!bonusUsed && NoteCreate.score >= 76539)
+        if (!bonusUsed && NoteCreate.score >= 39765)
         {
             bon.color = new Color(2.5f, 2.5f, 2.5f, 2.3f);
             if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.Y))
