@@ -231,7 +231,7 @@ public class MusicSelect : MonoBehaviour {
                 dataCenter.sapphire.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
             case 6:
-                dataCenter.talesRemix.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
+                dataCenter._LE.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);
                 break;
             case 7:
                 dataCenter.entire.getNote(dataCenter.Musics[currentPoint].list[currentDifficulty]);

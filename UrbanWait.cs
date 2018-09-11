@@ -83,7 +83,7 @@ public class UrbanWait : MonoBehaviour {
                 new Sapphire().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
                 break;
             case 6:
-                new TheTalesRemix().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
+                new Appriation_LE().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);
                 break;
             case 7:
                 new Entire().getNote(courseData.musics[stageNum].list[courseData.musicLevels[stageNum]]);

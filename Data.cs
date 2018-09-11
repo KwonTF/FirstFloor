@@ -13,7 +13,7 @@ public class Data : MonoBehaviour {
     public Whiteblue whiteblue;
     public Brandnew_Days brandnew_Days;
     public Sapphire sapphire;
-    public TheTalesRemix talesRemix;
+    public Appriation_LE _LE;
     public Entire entire;
     public LazyDays lazyDays;
     public Deborah deborah;
@@ -89,7 +89,7 @@ public class Data : MonoBehaviour {
         Musics.Add(whiteblue.GetInfo());
         Musics.Add(brandnew_Days.GetInfo());
         Musics.Add(sapphire.GetInfo());
-        Musics.Add(talesRemix.GetInfo());
+        Musics.Add(_LE.GetInfo());
         Musics.Add(entire.GetInfo());
         Musics.Add(lazyDays.GetInfo());
         Musics.Add(deborah.GetInfo());
