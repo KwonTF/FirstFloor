@@ -44,6 +44,8 @@ public class Data : MonoBehaviour {
     public OrBiTaL orbital;
     public Northpole northpole;
     public Your_Own_Miracle miracle;
+    public You_Sky sky;
+    public Departurer departurer;
     //
     public class NoteInfo
     {
@@ -120,6 +122,8 @@ public class Data : MonoBehaviour {
         Musics.Add(orbital.GetInfo());
         Musics.Add(northpole.GetInfo());
         Musics.Add(miracle.GetInfo());
+        Musics.Add(sky.GetInfo());
+        Musics.Add(departurer.GetInfo());
         Musics.Sort(delegate (MusicInfo a, MusicInfo b) {
             if (a.key > b.key) return 1;
             else if (a.key < b.key) return -1;
